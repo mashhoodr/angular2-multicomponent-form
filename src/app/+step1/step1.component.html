@@ -1,0 +1,10 @@
+<p>step1 works!</p>
+
+  <form [ngFormModel]="step1">
+    <label>Name:</label>
+    <input type="text" [ngFormControl]="step1.controls['input_name']" />
+    
+    <label>Age:</label>
+    <input type="text" [ngFormControl]="step1.controls['input_age_user']" />
+    
+  </form>

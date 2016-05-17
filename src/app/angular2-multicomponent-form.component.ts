@@ -1,11 +1,21 @@
 import { Component } from '@angular/core';
+import { Step1Component } from './+step1';
+import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { FormManager } from './shared/form-manager';
+import { Step2Component } from './+step2';
 
 @Component({
   moduleId: module.id,
   selector: 'angular2-multicomponent-form-app',
   templateUrl: 'angular2-multicomponent-form.component.html',
-  styleUrls: ['angular2-multicomponent-form.component.css']
+  styleUrls: ['angular2-multicomponent-form.component.css'],
+  directives: [ROUTER_DIRECTIVES],
+  providers: [ROUTER_PROVIDERS, FormManager]
 })
+@Routes([
+  {path: '/step1', component: Step1Component},
+  {path: '/step2', component: Step2Component}
+])
 export class Angular2MulticomponentFormAppComponent {
-  title = 'angular2-multicomponent-form works!';
+  title = 'Welcome to Angular2 Multi-component form demo!';
 }
