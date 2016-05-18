@@ -46,3 +46,17 @@ export class NumberFormField extends FormField {
     }
     
 }
+
+export class RadioFormField extends FormField {
+    
+    public type: string = 'radio';
+    
+    constructor(
+       public name: string,
+       public label: string,
+       public options: Array<string>,
+       public defaultValue: string = '') {
+        super(name, label, defaultValue);
+    }
+    
+}

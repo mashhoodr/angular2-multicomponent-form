@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-4">
-    <label>{{ field[0].label }}:</label>
+    <label>{{ field[0].label }}</label>
       
     <div *ngIf="field[0].type == 'select'">   
       <select [ngFormControl]="field[1]"   
@@ -21,6 +21,12 @@
         [ngFormControl]="field[1]" 
         class="form-control" 
         min="{{ field[0].min }}" />
+    </div>
+
+    <div *ngIf="field[0].type == 'radio'">
+      <label class="radio-inline" *ngFor="let option of field[0].options">
+        <input name="field[0].name" class="btn" type="radio" value="{{ option }}"[ngFormControl]="field[1]" /> {{ option }}
+      </label>
     </div>
   </div>
 </div>
