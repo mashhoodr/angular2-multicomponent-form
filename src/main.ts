@@ -1,7 +1,6 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { Angular2MulticomponentFormAppComponent, environment } from './app/';
-import {FormFieldService} from './app/shared/form-field/form-field.service';
+import { Angular2MulticomponentFormAppComponent, environment, FormFieldService } from './app/';
 
 if (environment.production) {
   enableProdMode();
