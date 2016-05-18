@@ -9,12 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FormFieldComponent implements OnInit {
   @Input() field;
   
-  constructor() {
-    
-  }
+  constructor() {}
 
-  ngOnInit() {
-    console.log('--<>', this.field);  
-  }
+  ngOnInit() {}
 
 }

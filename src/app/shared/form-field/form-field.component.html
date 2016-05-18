@@ -1,6 +1,20 @@
 <div class="row">
   <div class="col-sm-4">
     <label>{{ field[0].label }}:</label>
-    <input type="text" [ngFormControl]="field[1]" class="form-control" />
+      
+    <div *ngIf="field[0].type == 'select'">   
+      <select [ngFormControl]="field[1]"   
+        class="form-control">
+        <option *ngFor="let option of field[0].options" value="{{ option }}">{{ option }}</option>
+      </select>
+    </div>
+    
+    <div *ngIf="field[0].type == 'text'">
+      <input type="text" 
+        [ngFormControl]="field[1]" 
+        class="form-control" 
+        placeholder="{{ field[0].placeholder }}" />
+    </div>
+    
   </div>
 </div>

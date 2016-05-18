@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { FormField } from './form-field';
+import { FormField, TextFormField, SelectFormField } from './form-field';
 
 @Injectable()
 export class FormFieldService {
@@ -11,17 +11,17 @@ export class FormFieldService {
     return [{
       section: 'step1',
       fields: [
-        new FormField('input_name', 'Your name'),
-        new FormField('input_relationship_status', 'Relationship Status'),
-        new FormField('input_age_user', 'Age')
+        new TextFormField('input_name', 'Your name'),
+        new SelectFormField('input_relationship_status', ['Single', 'Couple'], 'Relationship Status', 'Couple'),
+        new TextFormField('input_age_user', 'Age')
       ]
     },
     {
       section: 'step2',
       fields: [
-        new FormField('input_number_of_children', 'Number of children'),
-        new FormField('input_savings', 'Savings'),
-        new FormField('input_dependants', 'Number of Dependants')
+        new TextFormField('input_number_of_children', 'Number of children', '0'),
+        new TextFormField('input_savings', 'Savings', '', 'Total savings you currently have'),
+        new TextFormField('input_dependants', 'Number of Dependants')
       ]
     }];
   }
