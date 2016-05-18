@@ -1,3 +1,7 @@
 label {
   margin-top: 10px;
 }
+
+.radio-inline {
+	margin-top: 0 !important;
+}
