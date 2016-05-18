@@ -32,3 +32,17 @@ export class SelectFormField extends FormField {
     }
     
 }
+
+export class NumberFormField extends FormField {
+    
+    public type: string = 'number';
+    
+    constructor(
+       public name: string,
+       public label: string,
+       public min: string = '', 
+       public defaultValue: string = '0') {
+        super(name, label, defaultValue);
+    }
+    
+}

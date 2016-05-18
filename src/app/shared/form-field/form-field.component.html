@@ -16,5 +16,11 @@
         placeholder="{{ field[0].placeholder }}" />
     </div>
     
+    <div *ngIf="field[0].type == 'number'">
+      <input type="number" 
+        [ngFormControl]="field[1]" 
+        class="form-control" 
+        min="{{ field[0].min }}" />
+    </div>
   </div>
 </div>
