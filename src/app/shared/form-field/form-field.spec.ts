@@ -9,6 +9,6 @@ import {FormField} from './form-field';
 
 describe('FormField', () => {
   it('should create an instance', () => {
-    expect(new FormField('Something')).toBeTruthy();
+    expect(new FormField('Something', '')).toBeTruthy();
   });
 });
