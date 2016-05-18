@@ -7,7 +7,7 @@ import {
 } from '@angular/core/testing';
 import {FormManager} from './form-manager';
 import { FormBuilder   } from '@angular/common';
-import { FormFieldService } from './form-field.service';
+import { FormFieldService } from './form-field';
 
 describe('FormManager', () => {
   it('should create an instance', () => {
