@@ -1,12 +1,9 @@
-<p>
-  step2 works!
-</p>
+<p>This is step2.</p>
 
 <form [ngFormModel]="step2">
-   <label>Age:</label>
-   <input type="text" [ngFormControl]="step2.controls['input_savings']" />
+   <form-field [field]="fm.getField('input_dependants')"></form-field>
+
+   <form-field [field]="fm.getField('input_number_of_children')"></form-field>
    
-   <label>Something:</label>
-   <input type="text" [ngFormControl]="step2.controls['input_number_of_children']" />
-  
+   <form-field [field]="fm.getField('input_savings')"></form-field>
 </form>
