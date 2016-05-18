@@ -1,4 +1,10 @@
-<h1>{{title}}</h1>
-<a [routerLink]="['/step1']">Step 1</a>
-<a [routerLink]="['/step2']">Step 2</a>
-<router-outlet></router-outlet>
+<div class="container">
+  <h1>{{title}}</h1>
+  
+  <ul class="nav nav-pills">
+    <li role="presentation" [class.active]="getLinkStyle('/step1')"><a [routerLink]="['/step1']">Step 1</a></li>
+    <li role="presentation" [class.active]="getLinkStyle('/step2')"><a [routerLink]="['/step2']">Step 2</a></li>
+  </ul>
+  
+  <router-outlet></router-outlet>
+</div>
