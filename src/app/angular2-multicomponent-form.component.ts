@@ -15,10 +15,11 @@ import { Step2Component } from './+step2';
 })
 @Routes([
   {path: '/step1', component: Step1Component},
-  {path: '/step2', component: Step2Component}
+  {path: '/step2', component: Step2Component},
+  {path: '/', component: Step1Component}
 ])
 export class Angular2MulticomponentFormAppComponent {
-  title = 'Welcome to Angular2 Multi-component Dynamic form demo';
+  title = 'Angular2 Multi Component Dynamic Form demo';
   location: Location;
   
   constructor(location: Location) {
