@@ -1,32 +1,41 @@
 <div class="row">
   <div class="col-sm-4">
     <label>{{ field[0].label }}</label>
-      
-    <div *ngIf="field[0].type == 'select'">   
-      <select [ngFormControl]="field[1]"   
+
+    <div *ngIf="field[0].type == 'select'">
+      <select [ngFormControl]="field[1]"
         class="form-control">
         <option *ngFor="let option of field[0].options" value="{{ option }}">{{ option }}</option>
       </select>
     </div>
-    
+
     <div *ngIf="field[0].type == 'text'">
-      <input type="text" 
-        [ngFormControl]="field[1]" 
-        class="form-control" 
+      <input type="text"
+        [ngFormControl]="field[1]"
+        class="form-control"
         placeholder="{{ field[0].placeholder }}" />
     </div>
-    
+
     <div *ngIf="field[0].type == 'number'">
-      <input type="number" 
-        [ngFormControl]="field[1]" 
-        class="form-control" 
+      <input type="number"
+        [ngFormControl]="field[1]"
+        class="form-control"
         min="{{ field[0].min }}" />
     </div>
-
+    
     <div *ngIf="field[0].type == 'radio'">
-      <label class="radio-inline" *ngFor="let option of field[0].options">
-        <input name="field[0].name" class="btn" type="radio" value="{{ option }}"[ngFormControl]="field[1]" /> {{ option }}
-      </label>
+      <md-radio-group [ngFormControl]="field[1]">
+        <md-radio-button *ngFor="let option of field[0].options" [value]="option">
+          {{ option }}
+        </md-radio-button>
+      </md-radio-group>
+      <!--<label class="radio-inline" *ngFor="let option of field[0].options">
+        <input name="field[0].name"
+          class="btn"
+          type="radio"
+          value="{{ option }}"
+          [ngFormControl]="field[1]" /> {{ option }}
+      </label>-->
     </div>
   </div>
 </div>
