@@ -1,11 +1,9 @@
 <div class="row">
-  <div class="col-sm-4">
-    <label>{{ field[0].label }}</label>
-
-    <div *ngIf="field[0].type == 'select'">
-      <select #select  [ngFormControl]="field[1]"
-        (change)="updateValue($event)"
-        (focus)="onTouched()"
+  <div class="col-sm-9">
+    <label>{{ field[0].label }}:</label>
+      
+    <div *ngIf="field[0].type == 'select'">   
+      <select [ngFormControl]="field[1]"
         class="form-control">
         <option 
           *ngFor="let option of field[0].options" 
