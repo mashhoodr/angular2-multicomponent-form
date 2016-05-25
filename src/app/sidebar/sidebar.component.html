@@ -1,0 +1,6 @@
+<h3>{{title}}</h3>
+<ul class="nav">
+	<li *ngFor="let step of getSteps();">
+		<p>{{step}} is {{steps[step] ? "" : "not"}} complete.</p>
+	</li>
+</ul>
