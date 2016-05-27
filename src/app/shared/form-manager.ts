@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+//import {FormBuilder, Validators, formDirectives, ControlGroup} from 'angular2/forms';
 import { FormBuilder, ControlGroup, Control  } from '@angular/common';
 import { FormField, FormFieldService } from './form-field';
 
@@ -30,7 +31,7 @@ export class FormManager {
   valueUpdated(field: FormField, value: any) {
     console.log('Form updated', field.name, value);
   }
-  
+
   getField(name: string) {
     let search = [];
     this.fields.forEach(section => {

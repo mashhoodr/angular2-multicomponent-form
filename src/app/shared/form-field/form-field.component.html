@@ -11,6 +11,8 @@
             {{ option }}
          </option>
       </select>
+      <span class="text-danger" *ngIf="!vs.validate(field[1], field[0].validation);"> {{ field[0].validation.message }}
+      </span>
     </div>
 
     <div *ngIf="field[0].type == 'text'">
@@ -20,6 +22,8 @@
         (focus)="onTouched()"
         (blur)="updateValue($event)"
         placeholder="{{ field[0].placeholder }}" />
+      <span class="text-danger" *ngIf="!vs.validate(field[1], field[0].validation);"> {{ field[0].validation.message }}
+      </span>
     </div>
 
     <div *ngIf="field[0].type == 'number'">
