@@ -11,19 +11,19 @@ import { FormManager } from '../shared/form-manager';
 export class SidebarComponent implements OnInit {
   title: string = "Sidebar";
   mainForm: ControlGroup;
-  steps: Object = {}; /* contains all steps validations (true/false) */
+  validations: Object = {}; /* contains all steps validations (true/false) */
   
   constructor(public fm: FormManager) {
     this.mainForm = fm.mainForm;
 
     // initialize all `steps` to `false` by default.
     for (let key in this.mainForm.value) {
-      this.steps[key] = false;
+      this.validations[key] = false;
     }
   }
 
   getSteps(): Array<string>{
-    return Object.keys(this.steps);
+    return Object.keys(this.validations);
   }
   
   ngOnInit() {}

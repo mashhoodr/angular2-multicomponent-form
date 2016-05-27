@@ -1,8 +1,10 @@
+import { Validator } from './validator';
 export class FormField {
    constructor(
        public name: string,      
        public label: string, 
-       public defaultValue: string = '') {}  
+       public defaultValue: string = '',
+       public validation: Validator) {}  
 }
 
 export class TextFormField extends FormField {
@@ -13,8 +15,9 @@ export class TextFormField extends FormField {
        public name: string,      
        public label: string, 
        public defaultValue: string = '',
-       public placeholder: string = '') {
-        super(name, label, defaultValue);
+       public placeholder: string = '',
+       validation = null) {
+        super(name, label, defaultValue, validation || new Validator('', ''));
     }
     
 }
@@ -27,8 +30,9 @@ export class SelectFormField extends FormField {
        public name: string,
        public options: Array<string>,      
        public label: string, 
-       public defaultValue: string = '') {
-        super(name, label, defaultValue);
+       public defaultValue: string = '',
+       validation = null) {
+        super(name, label, defaultValue, validation || new Validator('', ''));
     }
     
 }

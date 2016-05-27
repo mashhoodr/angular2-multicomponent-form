@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { Step1Component } from './+step1';
 import { Router, Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 import { FormManager } from './shared/form-manager';
+import { ValidationService } from './shared/form-field/validation.service';
 import { Step2Component } from './+step2';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
@@ -13,7 +14,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   templateUrl: 'angular2-multicomponent-form.component.html',
   styleUrls: ['angular2-multicomponent-form.component.css'],
   directives: [ROUTER_DIRECTIVES, SidebarComponent],
-  providers: [ROUTER_PROVIDERS, FormManager]
+  providers: [ROUTER_PROVIDERS, FormManager, ValidationService]
 })
 @Routes([
   {path: '/step1', component: Step1Component},

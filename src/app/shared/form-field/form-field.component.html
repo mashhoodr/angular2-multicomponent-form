@@ -7,6 +7,8 @@
         class="form-control">
         <option *ngFor="let option of field[0].options" value="{{ option }}">{{ option }}</option>
       </select>
+      <span class="text-danger" *ngIf="!vs.validate(field[1], field[0].validation);"> {{ field[0].validation.message }}
+      </span>
     </div>
     
     <div *ngIf="field[0].type == 'text'">
@@ -14,6 +16,8 @@
         [ngFormControl]="field[1]" 
         class="form-control" 
         placeholder="{{ field[0].placeholder }}" />
+      <span class="text-danger" *ngIf="!vs.validate(field[1], field[0].validation);"> {{ field[0].validation.message }}
+      </span>
     </div>
     
   </div>
