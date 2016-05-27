@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ControlGroup, AbstractControl } from '@angular/common';
 import { FormManager } from '../shared/form-manager';
-import { FormFieldComponent } from '../shared/form-field';
+import { FormFieldComponent, FormField } from '../shared/form-field';
 
 @Component({
   moduleId: module.id,
@@ -14,11 +14,14 @@ export class Step1Component implements OnInit {
     
   step1: AbstractControl;
 
-  constructor(public fm: FormManager) {
+  constructor(private fm: FormManager) {
     this.step1 = fm.mainForm.controls['step1'];
   }
   
-
+  update(field: FormField, value: any) {
+    this.fm.valueUpdated(field, value)
+  }
+ 
   ngOnInit() {
   }
 

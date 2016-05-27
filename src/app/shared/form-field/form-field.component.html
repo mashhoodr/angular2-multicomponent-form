@@ -4,6 +4,7 @@
 
     <div *ngIf="field[0].type == 'select'">
       <select [ngFormControl]="field[1]"
+        (change)="updateValue($event)"
         class="form-control">
         <option *ngFor="let option of field[0].options" value="{{ option }}">{{ option }}</option>
       </select>
@@ -13,6 +14,7 @@
       <input type="text"
         [ngFormControl]="field[1]"
         class="form-control"
+        (blur)="updateValue($event)"
         placeholder="{{ field[0].placeholder }}" />
     </div>
 
@@ -20,22 +22,19 @@
       <input type="number"
         [ngFormControl]="field[1]"
         class="form-control"
+        (blur)="updateValue($event)"
         min="{{ field[0].min }}" />
     </div>
     
     <div *ngIf="field[0].type == 'radio'">
-      <md-radio-group [ngFormControl]="field[1]">
-        <md-radio-button *ngFor="let option of field[0].options" [value]="option">
-          {{ option }}
-        </md-radio-button>
-      </md-radio-group>
-      <!--<label class="radio-inline" *ngFor="let option of field[0].options">
+      <label class="radio-inline" *ngFor="let option of field[0].options">
         <input name="field[0].name"
           class="btn"
           type="radio"
           value="{{ option }}"
-          [ngFormControl]="field[1]" /> {{ option }}
-      </label>-->
+          [checked]="option === field[0].value"
+          (click)="updateValue($event)" /> {{ option }}
+      </label>
     </div>
   </div>
 </div>

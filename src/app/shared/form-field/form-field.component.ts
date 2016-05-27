@@ -1,19 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
-
-import { FORM_DIRECTIVES } from '@angular/common';
-import { MdRadioButton, MdRadioDispatcher } from '../radio-button/radio-button.component';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FORM_DIRECTIVES, AbstractControl } from '@angular/common';
 
 @Component({
   moduleId: module.id,
   selector: 'form-field',
   templateUrl: 'form-field.component.html',
   styleUrls: ['form-field.component.css'],
-  directives: [MdRadioButton, FORM_DIRECTIVES],
-  providers: [MdRadioDispatcher]
+  directives: [FORM_DIRECTIVES]
 })
 export class FormFieldComponent implements OnInit {
   @Input() field;
+  @Output() value = new EventEmitter();
   
   constructor() {}
   ngOnInit() {}
+  
+  updateValue($event) { 
+    this.value.emit({
+      field: this.field[0],
+      value: $event.target.value 
+    });
+  }
 }

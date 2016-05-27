@@ -1,11 +1,15 @@
 <p>This is step2.</p>
 
 <form [ngFormModel]="step2">
-   <form-field [field]="fm.getField('input_dependants')"></form-field>
+   <form-field [field]="fm.getField('input_dependants')"
+    (value)="update($event.field, $event.value)"></form-field>
 
-   <form-field [field]="fm.getField('input_number_of_children')"></form-field>
+   <form-field [field]="fm.getField('input_number_of_children')"
+    (value)="update($event.field, $event.value)"></form-field>
    
-   <form-field [field]="fm.getField('input_savings')"></form-field>
+   <form-field [field]="fm.getField('input_savings')"
+    (value)="update($event.field, $event.value)"></form-field>
    
-   <form-field [field]="fm.getField('input_carer_single')"></form-field>
+   <form-field [field]="fm.getField('input_carer_single')"
+    (value)="update($event.field, $event.value)"></form-field>
 </form>
