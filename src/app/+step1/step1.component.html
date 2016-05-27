@@ -9,4 +9,11 @@
     
     <form-field [field]="fm.getField('input_relationship_status')"
       (value)="update($event.field, $event.value)"></form-field>
+    
+    <form-field [field]="fm.getField('input_region')"
+    (value)="updateLocationFied($event)"></form-field>
+    
+    <form-field [field]="fm.getField('input_area')"
+    (value)="update($event.field, $event.value)"></form-field>  
+      
   </form>

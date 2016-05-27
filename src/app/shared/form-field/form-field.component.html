@@ -32,7 +32,7 @@
           class="btn"
           type="radio"
           value="{{ option }}"
-          [checked]="option === field[0].value"
+          [checked]="option === field[1].value"
           (click)="updateValue($event)" /> {{ option }}
       </label>
     </div>

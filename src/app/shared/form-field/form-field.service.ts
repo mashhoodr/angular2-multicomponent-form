@@ -14,6 +14,8 @@ export class FormFieldService {
       fields: [
         new TextFormField('input_name', 'Your name', ''),
         new SelectFormField('input_relationship_status', ['Single', 'Couple'], 'Relationship Status', 'Couple'),
+        new SelectFormField('input_region', [], 'Region', 'Greater London'),
+        new SelectFormField('input_area', [], 'Area'),
         new NumberFormField('input_age_user', 'Age', '0', '0')
       ]
     },
