@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-//import {FormBuilder, Validators, formDirectives, ControlGroup} from 'angular2/forms';
-import { FormBuilder, ControlGroup, Control  } from '@angular/common';
+import { FormBuilder, ControlGroup, Control, Validators  } from '@angular/common';
 import { FormField, FormFieldService } from './form-field';
 
 @Injectable()
@@ -19,7 +18,12 @@ export class FormManager {
       let controlGroup = {};
       for (let y = 0; y < section.fields.length; y++) {
         let field: FormField = section.fields[y];
-        controlGroup[field.name] = [field.defaultValue];
+        let validators = this.getFieldValidators(field);
+        if (validators.length > 0) {
+          controlGroup[field.name] = [field.defaultValue, Validators.compose(validators)];
+        } else {
+          controlGroup[field.name] = [field.defaultValue];
+        }
       }  
       
       sections[section.section] = fb.group(controlGroup);
@@ -34,13 +38,42 @@ export class FormManager {
     )
   }
 
+  getFieldValidators(field) {
+    let validations = field.validation;
+    let result = [];
+
+    if (!validations) {
+      return [];
+    }
+
+    if (typeof validations.length === 'undefined') {
+      validations = [validations];
+    }
+
+    for (let validation of validations) {
+      if (validation.type == 'required') {
+        result.push(Validators.required);
+      } else if (validation.type == 'custom') {
+        let patterns = validation.data;
+        for (let pattern of patterns) {
+          result.push(Validators.pattern(pattern));
+        }
+      } else if (validation.type == 'minLength') { // minLength or maxLength
+        result.push(Validators.minLength(validation.data));
+      } else if (validation.type == 'maxLength') { // minLength or maxLength
+        result.push(Validators.maxLength(validation.data));
+      }
+    }
+
+    return result;
+  }
+
   getField(name: string) {
     let search = [];
     this.fields.forEach(section => {
       section.fields.forEach(field => {
         if(field.name === name) {
           search.push(field);
-          console
           let control: ControlGroup = <ControlGroup> this.mainForm.controls[section.section];
           search.push(control.controls[name]);
         }

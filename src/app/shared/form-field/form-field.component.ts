@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ValidationService } from './validation.service';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +9,7 @@ import { ValidationService } from './validation.service';
 export class FormFieldComponent implements OnInit {
   @Input() field;
   
-  constructor(public vs: ValidationService) {}
+  constructor() {}
 
   ngOnInit() {}
 
