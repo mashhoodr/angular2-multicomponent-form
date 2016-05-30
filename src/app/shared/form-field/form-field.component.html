@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-sm-9">
     <label>{{ field[0].label }}:</label>
-      
-    <div *ngIf="field[0].type == 'select'">   
+    <em class="text-danger" *ngIf="!field[1].valid"> {{ field[0].validation.message || field[0].validation[0].message}}
+    </em>
+
+    <div *ngIf="field[0].type == 'select'" [ngClass]="{ 'has-error' : !field[1].valid }">   
       <select [ngFormControl]="field[1]"
         class="form-control">
         <option 
@@ -11,19 +13,15 @@
             {{ option }}
          </option>
       </select>
-      <span class="text-danger" *ngIf="!vs.validate(field[1], field[0].validation);"> {{ field[0].validation.message }}
-      </span>
     </div>
 
-    <div *ngIf="field[0].type == 'text'">
-      <input type="text"
-        [ngFormControl]="field[1]"
+    <div *ngIf="field[0].type == 'text'" [ngClass]="{ 'has-error' : !field[1].valid }">
+      <input type="text" 
+        [ngFormControl]="field[1]" 
         class="form-control"
         (focus)="onTouched()"
         (blur)="updateValue($event)"
         placeholder="{{ field[0].placeholder }}" />
-      <span class="text-danger" *ngIf="!vs.validate(field[1], field[0].validation);"> {{ field[0].validation.message }}
-      </span>
     </div>
 
     <div *ngIf="field[0].type == 'number'">

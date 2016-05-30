@@ -4,7 +4,7 @@ export class FormField {
        public name: string,      
        public label: string, 
        public defaultValue: string = '',
-       public validation: Validator) {}  
+       public validation: any = null) {}  
 }
 
 export class TextFormField extends FormField {
@@ -16,8 +16,8 @@ export class TextFormField extends FormField {
        public label: string, 
        public defaultValue: string = '',
        public placeholder: string = '',
-       validation = null) {
-        super(name, label, defaultValue, validation || new Validator('', ''));
+       public validation: any = null) {
+        super(name, label, defaultValue, validation);
     }
     
 }
@@ -31,8 +31,8 @@ export class SelectFormField extends FormField {
        public options: Array<string>,      
        public label: string, 
        public defaultValue: string = '',
-       validation = null) {
-        super(name, label, defaultValue, validation || new Validator('', ''));
+       public validation: any = null) {
+        super(name, label, defaultValue, validation);
     }
     
 }

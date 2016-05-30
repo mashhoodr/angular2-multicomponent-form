@@ -11,7 +11,7 @@ export class FormFieldService {
     return [{
       section: 'step1',
       fields: [
-        new TextFormField('input_name', 'Your name', '', '', new Validator('required', 'Required..')),
+        new TextFormField('input_name', 'Your name', '', '', [new Validator('required', 'Required..'), new Validator('minLength', 'minimum length should be 5', 5), new Validator('maxLength', 'maximum length should be 15', 15)]),
         new SelectFormField('input_relationship_status', ['Single', 'Couple'], 'Relationship Status', 'Couple'),
         new SelectFormField('input_region', [], 'Region', 'Greater London'),
         new SelectFormField('input_area', [], 'Area'),

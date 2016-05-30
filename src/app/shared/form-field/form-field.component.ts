@@ -22,6 +22,7 @@ export class FormFieldComponent implements OnInit {
   onTouched = () => {};
   
   constructor() {}
+  
   ngOnInit() {}
   
   updateValue($event) {
