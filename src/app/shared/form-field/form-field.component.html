@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-sm-9">
     <label>{{ field[0].label }}:</label>
-    <em class="text-danger" *ngIf="!field[1].valid"> {{ field[0].validation.message || field[0].validation[0].message}}
-    </em>
+
+    <form-field-error [field]="field"></form-field-error>
 
     <div *ngIf="field[0].type == 'select'" [ngClass]="{ 'has-error' : !field[1].valid }">   
       <select [ngFormControl]="field[1]"
