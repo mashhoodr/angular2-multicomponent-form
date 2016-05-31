@@ -12,18 +12,11 @@ export class FormManager {
     this.fields = formFieldService.getFormFields();
     let sections = {};
     
-    for(let x = 0; x < this.fields.length; x++) {
-      let section = this.fields[x];
+    for (let section of this.fields) {
       // dynamically generate the control groups
       let controlGroup = {};
-      for (let y = 0; y < section.fields.length; y++) {
-        let field: FormField = section.fields[y];
-        let validators = this.getFieldValidators(field);
-        if (validators.length > 0) {
-          controlGroup[field.name] = [field.defaultValue, Validators.compose(validators)];
-        } else {
-          controlGroup[field.name] = [field.defaultValue];
-        }
+      for (let field of section.fields) {
+        controlGroup[field.name] = [field.defaultValue].concat(this.getFieldValidators(field));
       }  
       
       sections[section.section] = fb.group(controlGroup);
@@ -39,33 +32,13 @@ export class FormManager {
   }
 
   getFieldValidators(field) {
-    let validations = field.validation;
     let result = [];
-
-    if (!validations) {
-      return [];
+    
+    for (let validation of field.validations) {
+      result.push((validation.data ? Validators[validation.type](validation.data) : Validators[validation.type]));
     }
 
-    if (typeof validations.length === 'undefined') {
-      validations = [validations];
-    }
-
-    for (let validation of validations) {
-      if (validation.type == 'required') {
-        result.push(Validators.required);
-      } else if (validation.type == 'custom') {
-        let patterns = validation.data;
-        for (let pattern of patterns) {
-          result.push(Validators.pattern(pattern));
-        }
-      } else if (validation.type == 'minLength') { // minLength or maxLength
-        result.push(Validators.minLength(validation.data));
-      } else if (validation.type == 'maxLength') { // minLength or maxLength
-        result.push(Validators.maxLength(validation.data));
-      }
-    }
-
-    return result;
+    return (result.length > 0) ? [Validators.compose(result)] : [];
   }
 
   getField(name: string) {

@@ -1,0 +1,4 @@
+<span *ngFor="let validation of field[0].validations">
+	<em class="text-danger" *ngIf="!field[1].valid &&field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}
+	</em>
+</span>
