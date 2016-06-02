@@ -1,42 +1,42 @@
 export class Validator {
 	/**
-	 * Param `type` can be string contains any of 'required', 'pattern', 'minLength' or 'maxLength'
-	 * Param `data` can be string as regex, number as length or null as none.
-	 * Param `message` can be any text.
-	 */
+	 * Param `message` can be any error text.
+	*/
 	constructor(
-		public type: string,
-		public data,
 		public message: string) {}
 }
 
 export class RequiredValidator extends Validator {
+	public type: string = 'required';
 	constructor(
 		public message: string = 'Required') {
-		super('required', null, message);
+		super(message);
 	}
 }
 
 export class PatternValidator extends Validator {
+	public type: string = 'pattern';
 	constructor(
-		public data: string,
+		public data: string, // regex pattern.
 		public message: string) {
-		super('pattern', data, message);
+		super(message);
 	}
 }
 
 export class MinLengthValidator extends Validator {
+	public type: string = 'minLength';
 	constructor(
-		public data: number,
+		public data: number, // length
 		public message: string) {
-		super('minLength', data, message);
+		super(message);
 	}
 }
 
 export class MaxLengthValidator extends Validator {
+	public type: string = 'maxLength';
 	constructor(
-		public data: number,
+		public data: number, // length
 		public message: string) {
-		super('maxLength', data, message);
+		super(message);
 	}
 }

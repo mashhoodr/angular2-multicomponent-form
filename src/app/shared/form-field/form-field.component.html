@@ -2,7 +2,10 @@
   <div class="col-sm-9">
     <label>{{ field[0].label }}:</label>
     
-    <form-field-error [field]="field"></form-field-error>
+    <span *ngFor="let validation of field[0].validations">
+      <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}
+      </em>
+    </span>
 
     <div *ngIf="field[0].type == 'select'" [ngClass]="{ 'has-error' : !field[1].valid }">   
       <select [ngFormControl]="field[1]"   
