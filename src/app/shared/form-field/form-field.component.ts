@@ -1,6 +1,5 @@
 import { Directive, Component, OnInit, Input, Output, EventEmitter, Provider, forwardRef } from '@angular/core';
 import { FORM_DIRECTIVES, AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/common';
-import { FormFieldErrorComponent } from './shared/form-field-error';
 
 const FORM_FIELD_CONTROL_VALUE_ACCESSOR = new Provider(
   NG_VALUE_ACCESSOR, {
@@ -13,7 +12,7 @@ const FORM_FIELD_CONTROL_VALUE_ACCESSOR = new Provider(
   selector: 'form-field',
   templateUrl: 'form-field.component.html',
   styleUrls: ['form-field.component.css'],
-  directives: [FORM_DIRECTIVES,FormFieldErrorComponent],
+  directives: [FORM_DIRECTIVES],
   providers: [FORM_FIELD_CONTROL_VALUE_ACCESSOR]
 })
 export class FormFieldComponent implements OnInit {
