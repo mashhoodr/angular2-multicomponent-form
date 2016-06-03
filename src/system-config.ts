@@ -31,8 +31,7 @@ const barrels: string[] = [
   'app/shared',
   'app/+step1',
   'app/+step2',
-  'app/shared/form-field',
-  'app/shared/radio-button',
+  'app/shared/form-field'
   /** @cli-barrel */
 ];
 
