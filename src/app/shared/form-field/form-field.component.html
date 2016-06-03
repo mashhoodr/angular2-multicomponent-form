@@ -1,20 +1,48 @@
 <div class="row">
   <div class="col-sm-4">
-    <label>{{ field[0].label }}:</label>
-      
-    <div *ngIf="field[0].type == 'select'">   
-      <select [ngFormControl]="field[1]"   
+    <label>{{ field[0].label }}</label>
+
+    <div *ngIf="field[0].type == 'select'">
+      <select #select  [ngFormControl]="field[1]"
+        (change)="updateValue($event)"
+        (focus)="onTouched()"
         class="form-control">
-        <option *ngFor="let option of field[0].options" value="{{ option }}">{{ option }}</option>
+        <option 
+          *ngFor="let option of field[0].options" 
+          value="{{ option }}">
+            {{ option }}
+         </option>
       </select>
     </div>
-    
+
     <div *ngIf="field[0].type == 'text'">
-      <input type="text" 
-        [ngFormControl]="field[1]" 
-        class="form-control" 
+      <input type="text"
+        [ngFormControl]="field[1]"
+        class="form-control"
+        (focus)="onTouched()"
+        (blur)="updateValue($event)"
         placeholder="{{ field[0].placeholder }}" />
     </div>
+
+    <div *ngIf="field[0].type == 'number'">
+      <input type="number"
+        [ngFormControl]="field[1]"
+        class="form-control"
+        (focus)="onTouched()"
+        (blur)="updateValue($event)"
+        min="{{ field[0].min }}" />
+    </div>
     
+    <div *ngIf="field[0].type == 'radio'">
+      <label class="radio-inline" *ngFor="let option of field[0].options">
+        <input name="field[0].name"
+          class="btn"
+          type="radio"
+          value="{{ option }}"
+          [checked]="option === field[1].value"
+          (focus)="onTouched()"
+          (click)="updateValue($event)" /> {{ option }}
+      </label>
+    </div>
   </div>
 </div>

@@ -25,12 +25,10 @@ export class FormManager {
     }
     
     this.mainForm = fb.group(sections);
-    
-    this.mainForm.valueChanges.subscribe(
-      form => {
-        console.log('Changed', form);
-      }
-    )
+  }
+  
+  valueUpdated(field: FormField, value: any) {
+    console.log('Form updated', field.name, value);
   }
   
   getField(name: string) {
@@ -39,7 +37,6 @@ export class FormManager {
       section.fields.forEach(field => {
         if(field.name === name) {
           search.push(field);
-          console
           let control: ControlGroup = <ControlGroup> this.mainForm.controls[section.section];
           search.push(control.controls[name]);
         }
@@ -48,7 +45,7 @@ export class FormManager {
     
     if(search.length <= 0) 
       throw new Error(`Field with name: ${name} not found`)
-     
+    
      return search;
   }
   
