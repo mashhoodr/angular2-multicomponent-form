@@ -14,6 +14,6 @@
     (value)="updateLocationFied($event)"></form-field>
     
     <form-field [field]="fm.getField('input_area')"
-    (value)="update($event.field, $event.value)"></form-field>  
+    (value)="update($event.field, $event.value)" [ngModel]="selectedArea"></form-field>  
       
   </form>
