@@ -10,11 +10,13 @@ import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testin
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Step2Component } from './step2.component';
+import { FormManager } from '../shared/form-manager';
+import { FormFieldService } from '../shared/form-field/';
 
 describe('Component: Step2', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [Step2Component]);
+  beforeEachProviders(() => [Step2Component, FormManager, FormFieldService]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));

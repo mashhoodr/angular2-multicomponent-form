@@ -37,7 +37,7 @@ describe('Component: FormField', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-form-field></app-form-field>
+    <form-field></form-field>
   `,
   directives: [FormFieldComponent]
 })
