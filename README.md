@@ -9,14 +9,14 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 - [x] Custom trigger events for each type of field
 - [x] Custom component for rendering different types of fields (based on type) (using NgModel)
 - [x] Inter-dependant select fields
-- [] IE9 Support
-- [] Validations over multiple components, show custom error messages via service
-- [] Sidebar showing status of form in each component
-- [] Field visibility dependant on service
-- [] Control visibility using specific fields
-- [] Tooltips on input fields
-- [] Injecting custom html blocks (non-form related) into components (ads, widgets etc)
-- [] Testing large forms
+- [ ] IE9 Support
+- [ ] Validations over multiple components, show custom error messages via service
+- [ ] Sidebar showing status of form in each component
+- [ ] Field visibility dependant on service
+- [ ] Control visibility using specific fields
+- [ ] Tooltips on input fields
+- [ ] Injecting custom html blocks (non-form related) into components (ads, widgets etc)
+- [ ] Testing large forms
 
 
 ## Setup
