@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="col-sm-9">
+  <div class="col-sm-9" id="{{field[0].name}}_block"
+    [ngClass]="{ 'has-error' : !field[1].valid }">
     <label>{{ field[0].label }}:</label>
     
     <span *ngFor="let validation of field[0].validations">
@@ -7,14 +8,14 @@
       </em>
     </span>
 
-    <div *ngIf="field[0].type == 'select'" [ngClass]="{ 'has-error' : !field[1].valid }">   
-      <select [ngFormControl]="field[1]"   
+    <div *ngIf="field[0].type == 'select'">   
+      <select [ngFormControl]="field[1]"
         class="form-control">
         <option *ngFor="let option of field[0].options" value="{{ option }}">{{ option }}</option>
       </select>
     </div>
     
-    <div *ngIf="field[0].type == 'text'" [ngClass]="{ 'has-error' : !field[1].valid }">
+    <div *ngIf="field[0].type == 'text'">
       <input type="text" 
         [ngFormControl]="field[1]" 
         class="form-control" 

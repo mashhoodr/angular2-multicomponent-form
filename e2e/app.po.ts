@@ -1,9 +1,11 @@
 export class Angular2MulticomponentFormPage {
-  navigateTo() {
-    return browser.get('/');
+  
+  navigateTo(route: string = '/') {
+    return browser.get(route);
   }
 
   getParagraphText() {
-    return element(by.css('angular2-multicomponent-form-app h1')).getText();
+    return element(by.css('angular2-multicomponent-form-app h3')).getText();
   }
+
 }
