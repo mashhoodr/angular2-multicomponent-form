@@ -1,6 +1,6 @@
 <h3>{{title}}</h3>
 <ul class="nav">
 	<li *ngFor="let step of getSteps();">
-		<p class="{{fm.mainForm['controls'][step].valid ? 'text-success' : 'text-danger'}}">{{step}} is {{fm.mainForm['controls'][step].valid ? "" : "not"}} complete.</p>
+		<p class="{{fm.mainForm['controls'][step].valid ? 'text-success' : 'text-danger'}}" id="sidebar-{{step}}-status">{{step}} is {{fm.mainForm['controls'][step].valid ? "" : "not"}} complete.</p>
 	</li>
 </ul>
