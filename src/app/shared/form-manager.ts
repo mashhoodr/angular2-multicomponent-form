@@ -17,7 +17,7 @@ export class FormManager {
       let controlGroup = {};
       for (let field of section.fields) {
         controlGroup[field.name] = [field.defaultValue].concat(this.getFieldValidators(field));
-      }  
+      }
       
       sections[section.section] = fb.group(controlGroup);
     }
@@ -56,5 +56,5 @@ export class FormManager {
     
      return search;
   }
-  
+
 }

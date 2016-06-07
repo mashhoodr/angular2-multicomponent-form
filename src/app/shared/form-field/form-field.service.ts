@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Validator, RequiredValidator, PatternValidator, MinLengthValidator, MaxLengthValidator } from './validator';
+import { RequiredValidator, PatternValidator, MinLengthValidator, MaxLengthValidator } from './validator';
 import { FormField, TextFormField, SelectFormField, RadioFormField, NumberFormField } from './form-field';
 
 @Injectable()
