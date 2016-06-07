@@ -9,7 +9,9 @@
     </span>
 
     <div *ngIf="field[0].type == 'select'"> 
-      <select [ngFormControl]="field[1]"
+      <select #select [ngFormControl]="field[1]"
+        (change)="updateValue($event)"
+        (focus)="onTouched()"
         class="form-control">
         <option 
           *ngFor="let option of field[0].options" 

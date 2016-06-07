@@ -18,10 +18,9 @@ export class Step2Component implements OnInit {
   }
   
   update(field: FormField, value: any) {
-    this.fm.valueUpdated(field, value)
+    this.fm.valueUpdated(field, value);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
