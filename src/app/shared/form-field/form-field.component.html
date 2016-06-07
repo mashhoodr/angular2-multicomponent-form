@@ -1,54 +1,50 @@
-<div class="row">
-  <div class="col-sm-9" id="{{field[0].name}}_block"
-    [ngClass]="{ 'has-error' : !field[1].valid }">
-    <label>{{ field[0].label }}:</label>
+<div [ngClass]="{ 'has-error' : !field[1].valid }">
+<label>{{ field[0].label }}</label>
 
-    <span *ngFor="let validation of field[0].validations">
-      <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}
-      </em>
-    </span>
+<span *ngFor="let validation of field[0].validations">
+  <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}</em>
+</span>
 
-    <div *ngIf="field[0].type == 'select'"> 
-      <select #select [ngFormControl]="field[1]"
-        (change)="updateValue($event)"
-        (focus)="onTouched()"
-        class="form-control">
-        <option 
-          *ngFor="let option of field[0].options" 
-          value="{{ option }}">
-            {{ option }}
-         </option>
-      </select>
-    </div>
-    
-    <div *ngIf="field[0].type == 'text'">
-      <input type="text" 
-        [ngFormControl]="field[1]" 
-        class="form-control"
-        (focus)="onTouched()"
-        (blur)="updateValue($event)"
-        placeholder="{{ field[0].placeholder }}" />
-    </div>
+<div *ngIf="field[0].type == 'select'">
+  <select [ngFormControl]="field[1]"
+    (change)="updateValue($event)"
+    (focus)="onTouched()"
+    class="form-control">
+    <option 
+      *ngFor="let option of field[0].options" 
+      value="{{ option }}">
+        {{ option }}
+      </option>
+  </select>
+</div>
 
-    <div *ngIf="field[0].type == 'number'">
-      <input type="number"
-        [ngFormControl]="field[1]"
-        class="form-control"
-        (focus)="onTouched()"
-        (blur)="updateValue($event)"
-        min="{{ field[0].min }}" />
-    </div>
-    
-    <div *ngIf="field[0].type == 'radio'">
-      <label class="radio-inline" *ngFor="let option of field[0].options">
-        <input name="field[0].name"
-          class="btn"
-          type="radio"
-          value="{{ option }}"
-          [checked]="option === field[1].value"
-          (focus)="onTouched()"
-          (click)="updateValue($event)" /> {{ option }}
-      </label>
-    </div>
-  </div>
+<div *ngIf="field[0].type == 'text'">
+  <input type="text"
+    [ngFormControl]="field[1]"
+    class="form-control"
+    (focus)="onTouched()"
+    (blur)="updateValue($event)"
+    placeholder="{{ field[0].placeholder }}" />
+</div>
+
+<div *ngIf="field[0].type == 'number'">
+  <input type="number"
+    [ngFormControl]="field[1]"
+    class="form-control"
+    (focus)="onTouched()"
+    (blur)="updateValue($event)"
+    min="{{ field[0].min }}" />
+</div>
+
+<div *ngIf="field[0].type == 'radio'">
+  <label class="radio-inline" *ngFor="let option of field[0].options">
+    <input name="field[0].name"
+      class="btn"
+      type="radio"
+      value="{{ option }}"
+      [checked]="option === field[1].value"
+      (focus)="onTouched()"
+      (click)="updateValue($event)" /> {{ option }}
+  </label>
+</div>
 </div>

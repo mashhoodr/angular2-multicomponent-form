@@ -31,7 +31,8 @@ export class FormFieldService {
         new NumberFormField('input_child_age_2', 'Age of Child 2', '0', '0'),
         new NumberFormField('input_child_age_3', 'Age of Child 3', '0', '0'),
         new NumberFormField('input_child_age_4', 'Age of Child 4', '0', '0'),
-        new NumberFormField('input_child_age_5', 'Age of Child 5', '0', '0')
+        new NumberFormField('input_child_age_5', 'Age of Child 5', '0', '0'),
+        new SelectFormField('input_child_disability_1', ['Yes', 'No'], 'Relationship Status', 'Single'),
       ]
     }];
   }

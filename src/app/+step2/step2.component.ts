@@ -17,7 +17,6 @@ export class Step2Component implements OnInit {
   constructor(private fm: FormManager) {
     this.step2 = fm.mainForm.controls['step2'];
     this.input_number_of_children = fm.getField('input_number_of_children');
-    console.log(this.input_number_of_children);
   }
   
   update(field: FormField, value: any) {
