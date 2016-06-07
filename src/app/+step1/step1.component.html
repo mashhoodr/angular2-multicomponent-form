@@ -1,17 +1,56 @@
 <p>This is step1.</p>
 
 <form [ngFormModel]="step1">
-   <form-field [field]="fm.getField('input_name')" 
-   (value)="update($event.field, $event.value)"></form-field>
-
-   <form-field [field]="fm.getField('input_age_user')" 
-   (value)="update($event.field, $event.value)"></form-field>
-
-   <form-field [field]="fm.getField('input_relationship_status')" (value)="update($event.field, $event.value)"></form-field>
-
-   <form-field [field]="fm.getField('input_region')" 
-   (value)="updateLocationFied($event)"></form-field>
-
-   <form-field [field]="fm.getField('input_area')" 
-   (value)="update($event.field, $event.value)" [ngModel]="selectedArea"></form-field>   
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <form-field [field]="fm.getField('input_name')" 
+      (value)="update($event.field, $event.value)"></form-field>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <form-field [field]="fm.getField('input_relationship_status')"
+      (value)="update($event.field, $event.value)"></form-field>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <form-field [field]="fm.getField('input_age_user')"
+      (value)="update($event.field, $event.value)"></form-field>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <form-field 
+      *ngIf="fm.getField('input_relationship_status')[1].value === 'Couple'" 
+      [field]="fm.getField('input_age_partner')"
+      (value)="update($event.field, $event.value)"></form-field>
+    </div>
+  </div>
+    
+  <div class="row">
+    <div class="col-sm-4">
+      <form-field [field]="fm.getField('input_number_of_children')"
+      (value)="update($event.field, $event.value)"></form-field>   
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <form-field [field]="fm.getField('input_region')"
+      (value)="updateLocationFied($event)"></form-field>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <form-field [field]="fm.getField('input_area')"
+      (value)="update($event.field, $event.value)" [ngModel]="selectedArea"></form-field>  
+    </div>
+  </div>
+    
 </form>

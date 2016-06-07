@@ -1,15 +1,41 @@
 <p>This is step2.</p>
 
 <form [ngFormModel]="step2">
-   <form-field [field]="fm.getField('input_dependants')"
-    (value)="update($event.field, $event.value)"></form-field>
 
-   <form-field [field]="fm.getField('input_number_of_children')"
-    (value)="update($event.field, $event.value)"></form-field>
-   
-   <form-field [field]="fm.getField('input_savings')"
-    (value)="update($event.field, $event.value)"></form-field>
-   
-   <form-field [field]="fm.getField('input_carer_single')"
-    (value)="update($event.field, $event.value)"></form-field>
+  <div class="row">
+    <div class="col-sm-4">
+			<form-field [field]="fm.getField('input_dependants')"
+			(value)="update($event.field, $event.value)"></form-field>
+		</div>
+  </div>
+
+	<!-- the ngIf is a possible? performance attribute added to
+	ignore the ngFor if the children are 0  -->
+	<div *ngIf="hasChildren()"
+	*ngFor="let i of input_number_of_children[0].options; let m = index">
+		<!-- m is defined since its an int, i is a string -->
+		<!-- ngIf is used instead of hiding so the field is removed from view -->
+		<div class="row">
+			<div class="col-sm-4">
+				<form-field
+				*ngIf="assertChildCount(i)"
+				[field]="fm.getField('input_child_age_' + (m + 1))"
+				(value)="update($event.field, $event.value)"></form-field>
+			</div>
+		</div>
+	</div>
+
+   <div class="row">
+	   <div class="col-sm-4">
+			<form-field [field]="fm.getField('input_savings')"
+			(value)="update($event.field, $event.value)"></form-field>
+		</div>
+	</div>
+
+   <div class="row">
+	   <div class="col-sm-4">
+				<form-field [field]="fm.getField('input_carer_single')"
+				(value)="update($event.field, $event.value)"></form-field>
+		</div>
+	</div>
 </form>

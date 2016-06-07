@@ -21,7 +21,6 @@ export class FormManager {
       
       sections[section.section] = fb.group(controlGroup);
     }
-    
     this.mainForm = fb.group(sections);
   }
   
