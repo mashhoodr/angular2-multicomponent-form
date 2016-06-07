@@ -11,9 +11,10 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 - [x] Inter-dependant select fields
 - [x] Validations over multiple components, show custom error messages via service
 - [x] Sidebar showing status of form in each component
-- [ ] Field visibility dependant on service
-- [ ] Control visibility using specific fields
+- [x] Field visibility dependant on service
+- [x] Control visibility using specific fields
 - [ ] IE9 Support
+- [ ] Clicking on text fields should empty them, if empty on blur restore the value (directive)
 - [ ] Tooltips on input fields
 - [ ] Injecting custom html blocks (non-form related) into components (ads, widgets etc)
 - [ ] Testing large forms
