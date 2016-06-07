@@ -1,9 +1,15 @@
 <div class="row">
-  <div class="col-sm-4">
-    <label>{{ field[0].label }}</label>
+  <div class="col-sm-9" id="{{field[0].name}}_block"
+    [ngClass]="{ 'has-error' : !field[1].valid }">
+    <label>{{ field[0].label }}:</label>
 
-    <div *ngIf="field[0].type == 'select'">
-      <select #select  [ngFormControl]="field[1]"
+    <span *ngFor="let validation of field[0].validations">
+      <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}
+      </em>
+    </span>
+
+    <div *ngIf="field[0].type == 'select'"> 
+      <select #select [ngFormControl]="field[1]"
         (change)="updateValue($event)"
         (focus)="onTouched()"
         class="form-control">
@@ -14,10 +20,10 @@
          </option>
       </select>
     </div>
-
+    
     <div *ngIf="field[0].type == 'text'">
-      <input type="text"
-        [ngFormControl]="field[1]"
+      <input type="text" 
+        [ngFormControl]="field[1]" 
         class="form-control"
         (focus)="onTouched()"
         (blur)="updateValue($event)"

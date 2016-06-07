@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, ControlGroup, Control  } from '@angular/common';
+import { FormBuilder, ControlGroup, Control, Validators  } from '@angular/common';
 import { FormField, FormFieldService } from './form-field';
 
 @Injectable()
@@ -12,14 +12,12 @@ export class FormManager {
     this.fields = formFieldService.getFormFields();
     let sections = {};
     
-    for(let x = 0; x < this.fields.length; x++) {
-      let section = this.fields[x];
+    for (let section of this.fields) {
       // dynamically generate the control groups
       let controlGroup = {};
-      for (let y = 0; y < section.fields.length; y++) {
-        let field: FormField = section.fields[y];
-        controlGroup[field.name] = [field.defaultValue];
-      }  
+      for (let field of section.fields) {
+        controlGroup[field.name] = [field.defaultValue].concat(this.getFieldValidators(field));
+      }
       
       sections[section.section] = fb.group(controlGroup);
     }
@@ -30,7 +28,17 @@ export class FormManager {
   valueUpdated(field: FormField, value: any) {
     console.log('Form updated', field.name, value);
   }
-  
+
+  getFieldValidators(field) {
+    let result = [];
+    
+    for (let validation of field.validations) {
+      result.push((validation.data ? Validators[validation.type](validation.data) : Validators[validation.type]));
+    }
+
+    return (result.length > 0) ? [Validators.compose(result)] : [];
+  }
+
   getField(name: string) {
     let search = [];
     this.fields.forEach(section => {
@@ -48,5 +56,5 @@ export class FormManager {
     
      return search;
   }
-  
+
 }

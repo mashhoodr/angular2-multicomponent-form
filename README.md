@@ -31,3 +31,26 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 - `$ ng serve`
 - `http://localhost:4200/`
 
+## e2e Tests
+
+For running e2e tests you must need [protractor](http://www.protractortest.org/) and [webdriver-manager](https://github.com/angular/webdriver-manager) globally installed on your machine.
+Follow up these commands if you don't have installed yet.
+
+```
+# Install webdriver-manager
+$ npm install -g webdriver-manager
+
+# Setting up a Selenium Server (By default it will download the selenium server jar and chromedriver binary.)
+$ webdriver-manager update
+
+# Install protractor
+$ npm install -g protractor
+```
+
+After then, you need to first start selenium server anf then run tests:
+
+- Starting the Selenium Server: `$ webdriver-manager start`
+i.e., By default, the selenium server will run on `http://localhost:4444/wd/hub`.
+
+- run e2e tests: `$ ng e2e`
+
