@@ -20,14 +20,22 @@
   </script>
   -->
 </head>
+
 <body>
+  <!-- Display the application -->
   <angular2-multicomponent-form-app>Loading...</angular2-multicomponent-form-app>
 
+  <!-- Load all libraries -->
   <script src="vendor/es6-shim/es6-shim.js"></script>
   <script src="vendor/reflect-metadata/Reflect.js"></script>
   <script src="vendor/systemjs/dist/system.src.js"></script>
   <script src="vendor/zone.js/dist/zone.js"></script>
+    
+    <!-- IE9+ Support libraries -->
+  <script src="vendor/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+  <script src="vendor/html5-history-api/history.js"></script>
 
+  <!-- Configure SystemJS -->
   <script>
     System.import('system-config.js').then(function () {
       System.import('main');
