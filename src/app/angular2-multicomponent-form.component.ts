@@ -39,7 +39,7 @@ export class Angular2MulticomponentFormAppComponent {
     let path = this.baseHref + routePath;
     
     /*
-      This below hack is for IE9+ on which:
+      This below hack is for IE9 on which:
       * '#' is been adding to url path on default route
         * and `Location` class doesn't seems to be work.
         // TODO: use `Location` class instead of `window` (whenever any hack is there.)
