@@ -9,7 +9,7 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 - [x] Custom trigger events for each type of field
 - [x] Custom component for rendering different types of fields (based on type) (using NgModel)
 - [x] Inter-dependant select fields
-- [ ] IE9 Support
+- [x] IE9 Support
 - [ ] Validations over multiple components, show custom error messages via service
 - [ ] Sidebar showing status of form in each component
 - [ ] Field visibility dependant on service
@@ -30,4 +30,3 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 
 - `$ ng serve`
 - `http://localhost:4200/`
-
