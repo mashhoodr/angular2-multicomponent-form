@@ -47,7 +47,6 @@ declare var System: any;
 System.config({
   map: {
     '@angular': 'vendor/@angular',
-    'angular2': 'vendor/angular2',
     'rxjs': 'vendor/rxjs',
     'main': 'main.js'
   },

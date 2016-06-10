@@ -12,7 +12,6 @@ module.exports = function(defaults) {
       'reflect-metadata/*.js',
       'rxjs/**/*.js',
       '@angular/**/*.js',
-      'angular2/**/*.js',
       'html5-history-api/*.js'
     ]
   });

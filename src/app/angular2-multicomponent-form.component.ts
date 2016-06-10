@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { Step1Component } from './+step1';
-import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 import { FormManager } from './shared/form-manager';
 import { Step2Component } from './+step2';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -21,13 +21,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 ])
 export class Angular2MulticomponentFormAppComponent {
   title = 'Angular2 Multi Component Dynamic Form demo';
-  baseHref = '/angular2-multicomponent-form'; 
-  /* 
-    ^ This must have to be match with <base href> from
-      > index.html i.e., <base href="/angular2-multicomponent-form">
-      whenever change, we must have to change on both places (^here + index.html).
-  */
-
   location: Location;
   
   constructor(location: Location) {
@@ -35,9 +28,8 @@ export class Angular2MulticomponentFormAppComponent {
   }
 
   getLinkStyle(routePath) {
-    let currentPath = this.baseHref + this.location.path();
-    let path = this.baseHref + routePath;
-    
+    let currentPath = this.location.path();
+
     /*
       This below hack is for IE9 on which:
       * '#' is been adding to url path on default route
@@ -47,9 +39,10 @@ export class Angular2MulticomponentFormAppComponent {
     */
 
     if (window.location.hash !== '') {
-      currentPath = window.location.hash.replace('#', '');
+      let hashPath = window.location.hash.replace('#', '').split('/');
+      currentPath = ('/' + (hashPath[hashPath.length - 1] || '')); // extracts the route path.
     }
 
-    return path === currentPath;
+    return routePath === currentPath;
   }
 }
