@@ -12,7 +12,8 @@ module.exports = function(defaults) {
       'reflect-metadata/*.js',
       'rxjs/**/*.js',
       '@angular/**/*.js',
-      'html5-history-api/*.js'
+      'html5-history-api/*.js',
+      'angular2-ie9-shims/*.js'
     ]
   });
 };
