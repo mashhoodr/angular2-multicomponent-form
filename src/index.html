@@ -20,14 +20,24 @@
   </script>
   -->
 </head>
+
 <body>
+  <!-- Display the application -->
   <angular2-multicomponent-form-app>Loading...</angular2-multicomponent-form-app>
 
+  <!-- Load all libraries -->
+    <!-- IE Polyfills -->
   <script src="vendor/es6-shim/es6-shim.js"></script>
+  <script src="vendor/systemjs/dist/system-polyfills.js"></script>
+    <!-- IE9 Support libraries -->
+  <script src="vendor/angular2-ie9-shims/shims_for_IE.dev.js"></script>
+  <script src="vendor/html5-history-api/history.js"></script>
+    <!-- Agular2 Support libraries -->
   <script src="vendor/reflect-metadata/Reflect.js"></script>
   <script src="vendor/systemjs/dist/system.src.js"></script>
   <script src="vendor/zone.js/dist/zone.js"></script>
-
+  
+  <!-- Configure SystemJS -->
   <script>
     System.import('system-config.js').then(function () {
       System.import('main');
