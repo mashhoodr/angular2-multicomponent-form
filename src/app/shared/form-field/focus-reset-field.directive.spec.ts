@@ -7,20 +7,21 @@ import {
   iit,
   it,
   inject
-} from '@angular/core/testing';
+} from '@angular/core/testing'
+
 import { By } from '@angular/platform-browser';
 import {ComponentFixture, TestComponentBuilder} from '@angular/compiler/testing';
 import { provide, Component } from '@angular/core';
-import { EditableDirective } from './editable.directive';
+import { FocusResetField } from './focus-reset-field.directive';
 
 @Component({
   selector: 'test-component',
-  template: `<input type="text" editable />`,
-   directives: [EditableDirective],
+  template: `<input type="text" focus-reset-field />`,
+  directives: [FocusResetField]
 })
 class TestComponent {}
 
-describe('Editable Directive: ', () => {
+describe('Focus Reset Field Directive: ', () => {
   beforeEachProviders((): any[] => []);
 
   it('should add attribute', inject([TestComponentBuilder], (testComponentBuilder: TestComponentBuilder) => {
@@ -28,7 +29,7 @@ describe('Editable Directive: ', () => {
       .createAsync(TestComponent)
       .then((fixture: ComponentFixture<TestComponent>) => {
         fixture.detectChanges();
-        const directiveEl = fixture.debugElement.query(By.css('[editable]'));
+        const directiveEl = fixture.debugElement.query(By.css('[focus-reset-field]'));
         expect(directiveEl.nativeElement).toBeDefined();
       });
   }));
@@ -38,7 +39,7 @@ describe('Editable Directive: ', () => {
       .createAsync(TestComponent)
       .then((fixture: ComponentFixture<TestComponent>) => {
         fixture.detectChanges();
-        const directiveEl = fixture.debugElement.query(By.css('[editable]'));
+        const directiveEl = fixture.debugElement.query(By.css('[focus-reset-field]'));
         directiveEl.nativeElement.value = 'testing';
         directiveEl.nativeElement.focus();
 
@@ -51,7 +52,7 @@ describe('Editable Directive: ', () => {
       .createAsync(TestComponent)
       .then((fixture: ComponentFixture<TestComponent>) => {
         fixture.detectChanges();
-        const directiveEl = fixture.debugElement.query(By.css('[editable]'));
+        const directiveEl = fixture.debugElement.query(By.css('[focus-reset-field]'));
 
         directiveEl.nativeElement.value = 'testing';
         directiveEl.nativeElement.focus();

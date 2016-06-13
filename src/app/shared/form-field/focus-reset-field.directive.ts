@@ -1,14 +1,15 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-  selector: '[editable]',
+  selector: '[focus-reset-field]',
   host: {
     '(focus)': '_onFocus()',
     '(blur)': '_onBlur()',
   }
 })
-export class EditableDirective {
-  inputValue: any;
+export class FocusResetField {
+
+  inputValue: string;
 
   constructor(private el: ElementRef) {
   }
@@ -25,4 +26,5 @@ export class EditableDirective {
 
     this.inputValue = this.el.nativeElement.value;
   }
+
 }
