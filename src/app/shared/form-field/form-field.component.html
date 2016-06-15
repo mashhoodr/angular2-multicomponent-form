@@ -7,6 +7,11 @@
 
 <div *ngIf="field[0].type == 'select'">
   <select [ngFormControl]="field[1]"
+    tooltip="{{field[0].tooltip.text}}"
+    tooltipPlacement="{{field[0].tooltip.placement}}"
+    tooltipAnimation="field[0].tooltip.animation"
+    [tooltipEnable]="field[0].tooltip.enable"
+    [tooltipIsOpen]="field[0].tooltip.isOpen"
     (change)="updateValue($event)"
     (focus)="onTouched()"
     class="form-control">
@@ -20,6 +25,11 @@
 
 <div *ngIf="field[0].type == 'text'">
   <input type="text"
+    tooltip="{{field[0].tooltip.text}}"
+    tooltipPlacement="{{field[0].tooltip.placement}}"
+    tooltipAnimation="field[0].tooltip.animation"
+    [tooltipEnable]="field[0].tooltip.enable"
+    [tooltipIsOpen]="field[0].tooltip.isOpen"
     [ngFormControl]="field[1]"
     class="form-control"
     (focus)="onTouched()"
@@ -29,6 +39,11 @@
 
 <div *ngIf="field[0].type == 'number'">
   <input type="number"
+    tooltip="{{field[0].tooltip.text}}"
+    tooltipPlacement="{{field[0].tooltip.placement}}"
+    tooltipAnimation="field[0].tooltip.animation"
+    [tooltipEnable]="field[0].tooltip.enable"
+    [tooltipIsOpen]="field[0].tooltip.isOpen"
     [ngFormControl]="field[1]"
     class="form-control"
     (focus)="onTouched()"
@@ -39,6 +54,11 @@
 <div *ngIf="field[0].type == 'radio'">
   <label class="radio-inline" *ngFor="let option of field[0].options">
     <input name="field[0].name"
+      tooltip="{{field[0].tooltip.text}}"
+      tooltipPlacement="{{field[0].tooltip.placement}}"
+      tooltipAnimation="field[0].tooltip.animation"
+      [tooltipEnable]="field[0].tooltip.enable"
+      [tooltipIsOpen]="field[0].tooltip.isOpen"
       class="btn"
       type="radio"
       value="{{ option }}"
