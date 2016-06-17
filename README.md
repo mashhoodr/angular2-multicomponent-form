@@ -5,19 +5,20 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 ## Functionality
 
 - [x] Large form broken over multiple components
-- [x] Single FormService managing all the data
+- [x] Single FormService managing all the data (using ngControl and ngForm)
 - [x] Custom trigger events for each type of field
-- [x] Custom component for rendering different types of fields (based on type) (using NgModel)
-- [x] Inter-dependant select fields
+- [x] Custom component for rendering different types of fields (based on type) (using ngModel)
+- [x] Inter-dependant select fields (values in one are dependant on other)
 - [x] Validations over multiple components, show custom error messages via service
 - [x] Sidebar showing status of form in each component
 - [x] Field visibility dependant on service
 - [x] Control visibility using specific fields
-- [ ] IE9 Support
-- [ ] Clicking on text fields should empty them, if empty on blur restore the value (directive)
+- [x] IE9 Support (with some hacks)
+- [x] Clicking on text fields should empty them, if empty on blur restore the value (directive)
 - [ ] Tooltips on input fields
 - [ ] Injecting custom html blocks (non-form related) into components (ads, widgets etc)
-- [ ] Testing large forms
+- [ ] Highcharts integration
+- [ ] Testing large forms (adding as we go along)
 
 
 ## Setup
