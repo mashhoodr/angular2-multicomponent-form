@@ -20,6 +20,16 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 - [ ] Highcharts integration
 - [ ] Testing large forms (adding as we go along)
 
+## How can I support developers?
+
+Star our GitHub repo ⭐
+Create pull requests, submit bugs, suggest new features or documentation updates 🔧
+Follow us on [Twitter](https://twitter.com/recurship) 🐾
+Like our page on [Facebook](http://facebook.com/recurship) 👍
+
+## Can I hire you guys?
+
+Yes! Visit our [homepage](http://recurship.com) or simply a note to mashhoodr@recurship.com. We will be happy to work with you!
 
 ## Setup
 
