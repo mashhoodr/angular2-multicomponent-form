@@ -9,7 +9,7 @@ export class Tooltip {
 	*/
 
 	constructor(
-		public text: string = '',
+		public text: string,
 		public placement: string = 'top',
 		public animation: boolean = true,
 		public enable: boolean = true,
