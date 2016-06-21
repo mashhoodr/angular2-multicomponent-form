@@ -15,7 +15,14 @@ describe('angular2-multicomponent-form App Step1 Tests: ', function() {
   });
 
   it('should change input Area by changing input Region', (done) => {
+    // default values set
+    expect(page.getInputFieldValue('input_region')).toEqual('Greater London');
+    expect(page.getInputFieldValue('input_area')).toEqual('Central London');
+    
     page.setInputFieldValue('input_region', 'East of England');
+    
+    // check whether values have been changed?
+    expect(page.getInputFieldValue('input_region')).toEqual('East of England');
     expect(page.getInputFieldValue('input_area')).toEqual('Bedford');
     done();
   });
