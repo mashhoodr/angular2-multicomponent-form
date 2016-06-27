@@ -15,7 +15,9 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 - [x] Control visibility using specific fields
 - [x] IE9 Support (with some hacks)
 - [x] Clicking on text fields should empty them, if empty on blur restore the value (directive)
-- [ ] Tooltips on input fields
+- [x] Tooltips on input fields
+- [x] Upgrade to RC3
+- [ ] Upgrade to new forms module (waiting for RC4 fixes)
 - [ ] Injecting custom html blocks (non-form related) into components (ads, widgets etc)
 - [ ] Highcharts integration
 - [ ] Testing large forms (adding as we go along)
