@@ -8,7 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
   moduleId: module.id,
-  selector: 'angular2-multicomponent-form-app',
+  selector: 'app-root',
   templateUrl: 'angular2-multicomponent-form.component.html',
   styleUrls: ['angular2-multicomponent-form.component.css'],
   directives: [ROUTER_DIRECTIVES, SidebarComponent],
