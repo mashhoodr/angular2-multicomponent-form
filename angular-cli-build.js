@@ -13,7 +13,9 @@ module.exports = function(defaults) {
       'rxjs/**/*.js',
       '@angular/**/*.js',
       'html5-history-api/*.js',
-      'angular2-ie9-shims/*.js'
+      'angular2-ie9-shims/*.js',
+      'ng2-bootstrap/**/*.*',
+      'moment/**/*.js'
     ]
   });
 };

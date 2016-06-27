@@ -34,12 +34,11 @@ export class AppStepFormPage {
     return this.hasClass('p#sidebar-'+ this.step + '-status', 'text-success');
   }  
 
-
   // form
   
   resetFields(fields: Array<string>) {
     fields.forEach((fieldname) => {
-      this.getInputTextField(fieldname).clear();
+      this.getInputField(fieldname).clear();
     });
   }
   
@@ -47,32 +46,55 @@ export class AppStepFormPage {
     return element(by.css('app-' + this.step + ' p')).getText();
   }
 
+  getErrorForField(fieldId: string) {
+    return element(by.css('#' + fieldId + '_error_block em.text-danger'));
+  }
+
   getErrorTextForField(fieldId: string) {
-    return element(by.css('#' + fieldId + '_block span em.text-danger')).getText();
+    return this.getErrorForField(fieldId).getText();
   }
 
   checkIfFieldHasError(fieldId: string) {
-    return this.hasClass('#' + fieldId + '_block', 'has-error');
+    return this.getErrorForField(fieldId).isPresent();
   }
 
-  getInputTextField(fieldId: string) {
-    return element(by.css('#' + fieldId + '_block input'));
+  getInputField(fieldId: string) {
+    return element(by.css('#' + fieldId));
   }
 
-  getSelectField(fieldId: string) {
-    return element(by.css('#' + fieldId + '_block select'));
+  clearInputField(fieldId: string) {
+    this.getInputField(fieldId).clear();
   }
 
-  clearInputTextField(fieldId: string) {
-    this.getInputTextField(fieldId).clear();
+  setInputFieldValue(fieldId: string, value: string) {
+    this.getInputField(fieldId).sendKeys(value);
   }
 
-  setInputTextFieldValue(fieldId: string, value: string) {
-    this.getInputTextField(fieldId).clear();
-    this.getInputTextField(fieldId).sendKeys(value);
+  getInputFieldValue(fieldId: string) {
+    return this.getInputField(fieldId).getAttribute('value');
   }
 
-  getInputTextFieldValue(fieldId: string) {
-    return this.getInputTextField(fieldId).getAttribute('value');
+  expectNumberOfChildAgeFieldsToEqual(count: number) {
+    let _this = this;
+
+    for(let i: number = 1; i <= count; i++) {
+      expect(_this.getInputField('input_child_age_' + i).isPresent()).toBeTruthy();
+    }
+
   }
+
+  /* Tooltip */
+  
+  clickOnField(fieldId: string) {
+    this.getInputField(fieldId).click();
+  }
+
+  getFieldTooltip(fieldId: string) {
+    return element(by.css('#' + fieldId + ' + tooltip-container .tooltip-inner'));
+  }
+  
+  getFieldTooltipText(fieldId: string) {
+    return this.getFieldTooltip(fieldId).getText();
+  }
+
 }

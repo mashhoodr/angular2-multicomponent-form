@@ -1,12 +1,18 @@
 <div [ngClass]="{ 'has-error' : !field[1].valid }">
 <label>{{ field[0].label }}</label>
 
-<span *ngFor="let validation of field[0].validations">
+<span id="{{field[0].name}}_error_block" *ngFor="let validation of field[0].validations">
   <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}</em>
 </span>
 
 <div *ngIf="field[0].type == 'select'">
   <select [ngFormControl]="field[1]"
+    [id]="field[0].name"
+    [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
+    [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
+    [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
+    [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
+    [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
     (change)="updateValue($event)"
     (focus)="onTouched()"
     class="form-control">
@@ -20,6 +26,12 @@
 
 <div *ngIf="field[0].type == 'text'">
   <input type="text"
+    [id]="field[0].name"
+    [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
+    [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
+    [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
+    [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
+    [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
     [ngFormControl]="field[1]"
     class="form-control"
     (focus)="onTouched()"
@@ -29,6 +41,12 @@
 
 <div *ngIf="field[0].type == 'number'">
   <input type="number"
+    [id]="field[0].name"
+    [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
+    [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
+    [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
+    [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
+    [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
     [ngFormControl]="field[1]"
     class="form-control"
     (focus)="onTouched()"
@@ -38,9 +56,14 @@
 
 <div *ngIf="field[0].type == 'radio'">
   <label class="radio-inline" *ngFor="let option of field[0].options">
-    <input name="field[0].name"
+    <input type="radio"
+      [id]="field[0].name"
+      [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
+      [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
+      [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
+      [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
+      [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
       class="btn"
-      type="radio"
       value="{{ option }}"
       [checked]="option === field[1].value"
       (focus)="onTouched()"
