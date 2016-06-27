@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { Step1Component } from './+step1';
-import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { FormManager } from './shared/form-manager';
 import { Step2Component } from './+step2';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -12,13 +12,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   templateUrl: 'angular2-multicomponent-form.component.html',
   styleUrls: ['angular2-multicomponent-form.component.css'],
   directives: [ROUTER_DIRECTIVES, SidebarComponent],
-  providers: [ROUTER_PROVIDERS, FormManager]
+  providers: [FormManager]
 })
-@Routes([
-  {path: '/step1', component: Step1Component},
-  {path: '/step2', component: Step2Component},
-  {path: '/', component: Step1Component}
-])
 export class Angular2MulticomponentFormAppComponent {
   title = 'Angular2 Multi Component Dynamic Form demo';
   location: Location;
