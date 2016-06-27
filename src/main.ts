@@ -11,8 +11,6 @@ if (environment.production) {
 bootstrap(Angular2MulticomponentFormAppComponent, 
   [
     FormFieldService, 
-    APP_ROUTER_PROVIDERS,
-    disableDeprecatedForms(),
-    provideForms()
+    APP_ROUTER_PROVIDERS
   ])
 .catch(err => console.error(err));
