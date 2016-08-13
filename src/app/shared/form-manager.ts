@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, ControlGroup, Control, Validators  } from '@angular/common';
+import { FormBuilder, FormGroup, FormControl, Validators  } from '@angular/forms';
 import { FormField, FormFieldService } from './form-field';
 
 @Injectable()
 export class FormManager {
   
-  public mainForm: ControlGroup;
+  public mainForm: FormGroup;
   public fields;
   
   constructor(fb: FormBuilder, formFieldService: FormFieldService) {
@@ -28,7 +28,7 @@ export class FormManager {
     console.log('Form updated', field.name, value);
   }
 
-  getFieldValidators(field) {
+  getFieldValidators(field): Validators[] {
     let result = [];
     
     for (let validation of field.validations) {
@@ -38,13 +38,14 @@ export class FormManager {
     return (result.length > 0) ? [Validators.compose(result)] : [];
   }
 
+  // TODO add types to these functions
   getField(name: string) {
     let search = [];
     this.fields.forEach(section => {
       section.fields.forEach(field => {
         if(field.name === name) {
           search.push(field);
-          let control: ControlGroup = <ControlGroup> this.mainForm.controls[section.section];
+          let control: FormGroup = <FormGroup> this.mainForm.controls[section.section];
           search.push(control.controls[name]);
         }
       })

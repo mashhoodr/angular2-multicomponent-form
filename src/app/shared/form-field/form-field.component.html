@@ -6,7 +6,7 @@
 </span>
 
 <div *ngIf="field[0].type == 'select'">
-  <select [ngFormControl]="field[1]"
+  <select [formControl]="field[1]"
     [id]="field[0].name"
     [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
     [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
@@ -32,7 +32,7 @@
     [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
     [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
     [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
-    [ngFormControl]="field[1]"
+    [formControl]="field[1]"
     class="form-control"
     (focus)="onTouched()"
     (blur)="updateValue($event)"
@@ -47,7 +47,7 @@
     [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
     [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
     [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
-    [ngFormControl]="field[1]"
+    [formControl]="field[1]"
     class="form-control"
     (focus)="onTouched()"
     (blur)="updateValue($event)"

@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Tooltip } from './tooltip';
-import { RequiredValidator, PatternValidator, MinLengthValidator, MaxLengthValidator } from './validator';
-import { FormField, TextFormField, SelectFormField, RadioFormField, NumberFormField } from './form-field';
+import { 
+  RequiredValidator, 
+  PatternValidator, 
+  MinLengthValidator, 
+  MaxLengthValidator } from './validator';
+import { 
+  FormField, 
+  TextFormField, 
+  SelectFormField, 
+  RadioFormField, 
+  NumberFormField } from './form-field';
 
 @Injectable()
 export class FormFieldService {

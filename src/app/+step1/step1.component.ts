@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ControlGroup, AbstractControl } from '@angular/common';
+import { AbstractControl } from '@angular/forms';
 import { FormManager } from '../shared/form-manager';
-import { FormFieldComponent, FormField } from '../shared/form-field';
+import { FormField } from '../shared/form-field';
 import { REGIONS } from './regions-data';
 
 @Component({
   moduleId: module.id,
   selector: 'app-step1',
   templateUrl: 'step1.component.html',
-  styleUrls: ['step1.component.css'],
-  directives: [FormFieldComponent]
+  styleUrls: ['step1.component.css']
 })
 export class Step1Component implements OnInit {
 

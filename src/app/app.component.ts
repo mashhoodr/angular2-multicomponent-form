@@ -1,20 +1,14 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { Step1Component } from './+step1';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { FormManager } from './shared/form-manager';
-import { Step2Component } from './+step2';
-import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  templateUrl: 'angular2-multicomponent-form.component.html',
-  styleUrls: ['angular2-multicomponent-form.component.css'],
-  directives: [ROUTER_DIRECTIVES, SidebarComponent],
-  providers: [FormManager]
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css']
 })
-export class Angular2MulticomponentFormAppComponent {
+export class AppComponent {
   title = 'Angular2 Multi Component Dynamic Form demo';
   location: Location;
   

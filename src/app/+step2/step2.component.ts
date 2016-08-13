@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ControlGroup, AbstractControl } from '@angular/common';
+import { AbstractControl } from '@angular/forms';
 import { FormManager } from '../shared/form-manager';
 import { FormFieldComponent, FormField } from '../shared/form-field';
 

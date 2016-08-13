@@ -1,6 +1,6 @@
 <p>This is step1.</p>
 
-<form [ngFormModel]="step1">
+<form [formGroup]="step1">
   
   <div class="row">
     <div class="col-sm-4">
@@ -48,8 +48,9 @@
   
   <div class="row">
     <div class="col-sm-4">
+      <!-- TODO fix [ngModel]="selectedArea"-->
       <form-field [field]="fm.getField('input_area')"
-      (value)="update($event.field, $event.value)" [ngModel]="selectedArea"></form-field>  
+      (value)="update($event.field, $event.value)"></form-field>  
     </div>
   </div>
     

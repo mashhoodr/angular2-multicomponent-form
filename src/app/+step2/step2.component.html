@@ -1,6 +1,6 @@
 <p>This is step2.</p>
 
-<form [ngFormModel]="step2">
+<form [formGroup]="step2">
 
   <div class="row">
     <div class="col-sm-4">
@@ -11,16 +11,17 @@
 
 	<!-- the ngIf is a possible? performance attribute added to
 	ignore the ngFor if the children are 0  -->
-	<div *ngIf="hasChildren()"
-	*ngFor="let i of input_number_of_children[0].options; let m = index">
-		<!-- m is defined since its an int, i is a string -->
-		<!-- ngIf is used instead of hiding so the field is removed from view -->
-		<div class="row">
-			<div class="col-sm-4">
-				<form-field
-				*ngIf="assertChildCount(i)"
-				[field]="fm.getField('input_child_age_' + (m + 1))"
-				(value)="update($event.field, $event.value)"></form-field>
+	<div *ngIf="hasChildren()">
+		<div *ngFor="let i of input_number_of_children[0].options; let m = index">
+			<!-- m is defined since its an int, i is a string -->
+			<!-- ngIf is used instead of hiding so the field is removed from view -->
+			<div class="row">
+				<div class="col-sm-4">
+					<form-field
+					*ngIf="assertChildCount(i)"
+					[field]="fm.getField('input_child_age_' + (m + 1))"
+					(value)="update($event.field, $event.value)"></form-field>
+				</div>
 			</div>
 		</div>
 	</div>
