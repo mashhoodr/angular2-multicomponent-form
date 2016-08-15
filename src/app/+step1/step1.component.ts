@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl  } from '@angular/forms';
 import { FormManager } from '../shared/form-manager';
 import { FormField } from '../shared/form-field';
 import { REGIONS } from './regions-data';
@@ -25,11 +25,12 @@ export class Step1Component implements OnInit {
   }
   
   updateLocationFied($event) {
+    // TODO fix update lag
     let regionControl = this.fm.getField('input_region')[1];
     if(regionControl.value) {
-      let areaField = this.fm.getField('input_area')[0];
-      areaField.options = Object.keys(this.regions[regionControl.value]);
-      this.selectedArea = areaField.options[0];
+      let areaField = this.fm.getField('input_area');
+      areaField[0].options = Object.keys(this.regions[regionControl.value]);
+      areaField[1].setValue(areaField[0].options[0]);
     }
     
     if($event) {

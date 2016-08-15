@@ -20,13 +20,8 @@ export class AppComponent {
     let currentPath = this.location.path();
 
     /*
-      This below hack is for IE9 on which:
-      * '#' is been adding to url path on default route
-        * and `Location` class doesn't seems to be work.
-        // TODO: use `Location` class instead of `window` (whenever any hack is there.)
-        * since currently `Location` class doesn't have function to get hash from url that's why use `window`.
+      This below hack is for IE9 on which needs to be refactored.
     */
-
     if (window.location.hash !== '') {
       let hashPath = window.location.hash.replace('#', '').split('/');
       currentPath = ('/' + (hashPath[hashPath.length - 1] || '')); // extracts the route path.

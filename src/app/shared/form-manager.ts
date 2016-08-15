@@ -14,12 +14,12 @@ export class FormManager {
     
     for (let section of this.fields) {
       // dynamically generate the control groups
-      let controlGroup = {};
+      let formGroup = {};
       for (let field of section.fields) {
-        controlGroup[field.name] = [field.defaultValue].concat(this.getFieldValidators(field));
+        formGroup[field.name] = [field.defaultValue].concat(this.getFieldValidators(field));
       }
       
-      sections[section.section] = fb.group(controlGroup);
+      sections[section.section] = fb.group(formGroup);
     }
     this.mainForm = fb.group(sections);
   }
