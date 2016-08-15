@@ -1,68 +1,68 @@
-<div [ngClass]="{ 'has-error' : !field[1].valid }">
-<!-- checkboxes have labels in front of them -->
-<label *ngIf="field[0].type != 'checkbox'">{{ field[0].label }}</label>
+<div [ngClass]="{ 'has-error': !field[1].valid, 'hidden': field[0].hidden }">
+  <!-- checkboxes have labels in front of them -->
+  <label *ngIf="field[0].type != 'checkbox'">{{ field[0].label }}</label>
 
-<span id="{{field[0].name}}_error_block" *ngFor="let validation of field[0].validations">
-  <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}</em>
-</span>
+  <span id="{{field[0].name}}_error_block" *ngFor="let validation of field[0].validations">
+    <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}</em>
+  </span>
 
-<div *ngIf="field[0].type == 'select'">
-  <select [formControl]="field[1]"
-    [id]="field[0].name"
-    [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
-    [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
-    [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
-    [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
-    [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
-    class="form-control">
-    <option 
-      *ngFor="let option of field[0].options" 
-      value="{{ option }}">
-        {{ option }}
-      </option>
-  </select>
-</div>
+  <div *ngIf="field[0].type == 'select'">
+    <select [formControl]="field[1]"
+      [id]="field[0].name"
+      [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
+      [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
+      [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
+      [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
+      [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
+      class="form-control">
+      <option 
+        *ngFor="let option of field[0].options" 
+        value="{{ option }}">
+          {{ option }}
+        </option>
+    </select>
+  </div>
 
-<div *ngIf="field[0].type == 'text' || field[0].type == 'number'">
-  <input type="field[0].type"
-    [id]="field[0].name"
-    [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
-    [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
-    [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
-    [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
-    [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
-    [formControl]="field[1]"
-    class="form-control"
-    placeholder="{{ field[0].placeholder }}" focus-reset-field/>
-</div>
-
-<div *ngIf="field[0].type == 'radio'">
-  <label class="radio-inline" *ngFor="let option of field[0].options">
-    <input type="radio"
+  <div *ngIf="field[0].type == 'text' || field[0].type == 'number'">
+    <input type="field[0].type"
+      [id]="field[0].name"
       [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
       [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
       [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
       [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
       [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
       [formControl]="field[1]"
-      class="btn"
-      name="field[0].name"
-      value="{{ option }}" /> {{ option }}
-  </label>
-</div>
+      class="form-control"
+      placeholder="{{ field[0].placeholder }}" focus-reset-field/>
+  </div>
 
-<div *ngIf="field[0].type == 'checkbox'">
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"
-        [id]="field[0].name"
+  <div *ngIf="field[0].type == 'radio'">
+    <label class="radio-inline" *ngFor="let option of field[0].options">
+      <input type="radio"
         [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
         [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
         [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
         [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
         [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
-        [formControl]="field[1]" /> {{ field[0].label }}
+        [formControl]="field[1]"
+        class="btn"
+        name="field[0].name"
+        value="{{ option }}" /> {{ option }}
     </label>
   </div>
-</div>
+
+  <div *ngIf="field[0].type == 'checkbox'">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"
+          [id]="field[0].name"
+          [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
+          [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
+          [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
+          [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
+          [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
+          [formControl]="field[1]" /> {{ field[0].label }}
+      </label>
+    </div>
+  </div>
 </div>

@@ -38,6 +38,7 @@ export class FormManager {
 
   // TODO add types to these functions
   getField(name: string) {
+    // TODO create a class / interface to return instead of this array
     let search = [];
     this.fields.forEach(section => {
       section.fields.forEach(field => {

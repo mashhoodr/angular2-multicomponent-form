@@ -8,11 +8,13 @@ export class FormField {
     label: string;
     defaultValue: string;
     validations: Validator[];
+    hidden: boolean;
     tooltip: Tooltip;
 
     constructor(options: {
         name?: string,
         label?: string,
+        hidden?: boolean,
         defaultValue?: string,
         validations?: Validator[],
         tooltip?: Tooltip
@@ -21,7 +23,9 @@ export class FormField {
         this.name = options.name;
         this.label = options.label || '';
         this.defaultValue = options.defaultValue || '';
-        this.validations = options.validations || [];  
+        this.validations = options.validations || [];
+        this.tooltip = options.tooltip || null;
+        this.hidden = options.hidden || false;  
     }
 }
 
