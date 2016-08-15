@@ -1,5 +1,6 @@
 <div [ngClass]="{ 'has-error' : !field[1].valid }">
-<label>{{ field[0].label }}</label>
+<!-- checkboxes have labels in front of them -->
+<label *ngIf="field[0].type != 'checkbox'">{{ field[0].label }}</label>
 
 <span id="{{field[0].name}}_error_block" *ngFor="let validation of field[0].validations">
   <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}</em>
@@ -25,7 +26,7 @@
 </div>
 
 <div *ngIf="field[0].type == 'text'">
-  <input type="text"
+  <input type="field[0].type"
     [id]="field[0].name"
     [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
     [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
@@ -39,35 +40,37 @@
     placeholder="{{ field[0].placeholder }}" focus-reset-field/>
 </div>
 
-<div *ngIf="field[0].type == 'number'">
-  <input type="number"
-    [id]="field[0].name"
-    [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
-    [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
-    [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
-    [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
-    [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
-    [formControl]="field[1]"
-    class="form-control"
-    (focus)="onTouched()"
-    (blur)="updateValue($event)"
-    min="{{ field[0].min }}" />
-</div>
-
 <div *ngIf="field[0].type == 'radio'">
   <label class="radio-inline" *ngFor="let option of field[0].options">
     <input type="radio"
-      [id]="field[0].name"
       [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
       [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
       [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
       [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
       [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
+      [formControl]="field[1]"
       class="btn"
+      name="field[0].name"
       value="{{ option }}"
-      [checked]="option === field[1].value"
       (focus)="onTouched()"
       (click)="updateValue($event)" /> {{ option }}
   </label>
+</div>
+
+<div *ngIf="field[0].type == 'checkbox'">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"
+        [id]="field[0].name"
+        [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
+        [tooltipPlacement]="field[0].tooltip ? field[0].tooltip.placement : null"
+        [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
+        [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
+        [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
+        [formControl]="field[1]"
+        (blur)="updateValue($event)"
+        placeholder="{{ field[0].placeholder }}" focus-reset-field/> {{ field[0].label }}
+    </label>
+  </div>
 </div>
 </div>

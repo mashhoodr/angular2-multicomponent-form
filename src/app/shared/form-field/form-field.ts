@@ -71,3 +71,7 @@ export class RadioFormField extends FormField {
         this.options = options['options'] || [];
     }
 }
+
+export class CheckboxFormField extends FormField {    
+    public type: string = 'checkbox';
+}

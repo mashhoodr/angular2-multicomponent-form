@@ -10,7 +10,8 @@ import {
   TextFormField, 
   SelectFormField, 
   RadioFormField, 
-  NumberFormField } from './form-field';
+  NumberFormField,
+  CheckboxFormField } from './form-field';
 
 @Injectable()
 export class FormFieldService {
@@ -94,7 +95,7 @@ export class FormFieldService {
         }),
         new RadioFormField({
           name: 'input_carer_single',
-          label: 'Carer',
+          label: 'Are you a Carer?',
           options: ['No', 'Yes'],
           defaultValue: 'Yes'
         }),
@@ -123,11 +124,9 @@ export class FormFieldService {
           label: 'Age of child 5',
           defaultValue: '0'
         }),
-        new RadioFormField({
-          name: 'input_child_disability_1',
-          label: 'Child 1 disability',
-          options: ['No', 'Yes'],
-          defaultValue: 'No'
+        new CheckboxFormField({
+          name: 'input_family_disability',
+          label: 'Any of the family members have disability?'
         })
       ]
     }];
