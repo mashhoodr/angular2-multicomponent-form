@@ -4,22 +4,19 @@
   
   <div class="row">
     <div class="col-sm-4">
-      <form-field [field]="fm.getField('input_name')" 
-      (value)="update($event.field, $event.value)"></form-field>
+      <form-field [field]="fm.getField('input_name')"></form-field>
     </div>
   </div>
   
   <div class="row">
     <div class="col-sm-4">
-      <form-field [field]="fm.getField('input_relationship_status')"
-      (value)="update($event.field, $event.value)"></form-field>
+      <form-field [field]="fm.getField('input_relationship_status')"></form-field>
     </div>
   </div>
   
   <div class="row">
     <div class="col-sm-4">
-      <form-field [field]="fm.getField('input_age_user')"
-      (value)="update($event.field, $event.value)"></form-field>
+      <form-field [field]="fm.getField('input_age_user')"></form-field>
     </div>
   </div>
   
@@ -27,30 +24,25 @@
     <div class="col-sm-4">
       <form-field 
       *ngIf="fm.getField('input_relationship_status')[1].value === 'Couple'" 
-      [field]="fm.getField('input_age_partner')"
-      (value)="update($event.field, $event.value)"></form-field>
+      [field]="fm.getField('input_age_partner')"></form-field>
     </div>
   </div>
     
   <div class="row">
     <div class="col-sm-4">
-      <form-field [field]="fm.getField('input_number_of_children')"
-      (value)="update($event.field, $event.value)"></form-field>   
+      <form-field [field]="fm.getField('input_number_of_children')"></form-field>   
     </div>
   </div>
   
   <div class="row">
     <div class="col-sm-4">
-      <form-field [field]="fm.getField('input_region')"
-      (value)="updateLocationFied($event)"></form-field>
+      <form-field [field]="fm.getField('input_region')"></form-field>
     </div>
   </div>
   
   <div class="row">
     <div class="col-sm-4">
-      <!-- TODO fix [ngModel]="selectedArea"-->
-      <form-field [field]="fm.getField('input_area')"
-      (value)="update($event.field, $event.value)"></form-field>  
+      <form-field [field]="fm.getField('input_area')"></form-field>  
     </div>
   </div>
     

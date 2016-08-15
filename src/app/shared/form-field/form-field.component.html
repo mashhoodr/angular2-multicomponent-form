@@ -14,8 +14,6 @@
     [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
     [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
     [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
-    (change)="updateValue($event)"
-    (focus)="onTouched()"
     class="form-control">
     <option 
       *ngFor="let option of field[0].options" 
@@ -25,7 +23,7 @@
   </select>
 </div>
 
-<div *ngIf="field[0].type == 'text'">
+<div *ngIf="field[0].type == 'text' || field[0].type == 'number'">
   <input type="field[0].type"
     [id]="field[0].name"
     [tooltip]="field[0].tooltip ? field[0].tooltip.text : null"
@@ -35,8 +33,6 @@
     [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
     [formControl]="field[1]"
     class="form-control"
-    (focus)="onTouched()"
-    (blur)="updateValue($event)"
     placeholder="{{ field[0].placeholder }}" focus-reset-field/>
 </div>
 
@@ -51,9 +47,7 @@
       [formControl]="field[1]"
       class="btn"
       name="field[0].name"
-      value="{{ option }}"
-      (focus)="onTouched()"
-      (click)="updateValue($event)" /> {{ option }}
+      value="{{ option }}" /> {{ option }}
   </label>
 </div>
 
@@ -67,9 +61,7 @@
         [tooltipAnimation]="field[0].tooltip ? field[0].tooltip.animation : null"
         [tooltipEnable]="field[0].tooltip ? (field[0].tooltip.enable && field[0].tooltip.text) : null"
         [tooltipIsOpen]="field[0].tooltip ? field[0].tooltip.isOpen : null"
-        [formControl]="field[1]"
-        (blur)="updateValue($event)"
-        placeholder="{{ field[0].placeholder }}" focus-reset-field/> {{ field[0].label }}
+        [formControl]="field[1]" /> {{ field[0].label }}
     </label>
   </div>
 </div>

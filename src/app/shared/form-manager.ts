@@ -22,12 +22,10 @@ export class FormManager {
       sections[section.section] = fb.group(formGroup);
     }
     this.mainForm = fb.group(sections);
+
+    this.mainForm.valueChanges.subscribe((event) => console.log('Form Updated!', event));
   }
   
-  valueUpdated(field: FormField, value: any) {
-    console.log('Form updated', field.name, value);
-  }
-
   getFieldValidators(field): Validators[] {
     let result = [];
     

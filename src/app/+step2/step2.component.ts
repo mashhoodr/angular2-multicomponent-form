@@ -18,10 +18,6 @@ export class Step2Component implements OnInit {
     this.step2 = fm.mainForm.controls['step2'];
     this.input_number_of_children = fm.getField('input_number_of_children');
   }
-  
-  update(field: FormField, value: any) {
-    this.fm.valueUpdated(field, value);
-  }
 
   ngOnInit() {
   }
