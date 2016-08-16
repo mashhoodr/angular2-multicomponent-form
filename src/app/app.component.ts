@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 
-
 @Component({
   moduleId: module.id,
   selector: 'app-root',

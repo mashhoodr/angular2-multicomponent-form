@@ -4,8 +4,8 @@
 
   <div class="row">
     <div class="col-sm-4">
-			<form-field [field]="fm.getField('input_dependants')"></form-field>
-		</div>
+		<form-field [field]="fm.getField('input_dependants')"></form-field>
+	</div>
   </div>
 
 	<!-- the ngIf is a possible? performance attribute added to
@@ -14,11 +14,9 @@
 		<div *ngFor="let i of input_number_of_children[0].options; let m = index">
 			<!-- m is defined since its an int, i is a string -->
 			<!-- ngIf is used instead of hiding so the field is removed from view -->
-			<div class="row">
+			<div class="row" *ngIf="assertChildCount(i)">
 				<div class="col-sm-4">
-					<form-field
-					*ngIf="assertChildCount(i)"
-					[field]="fm.getField('input_child_age_' + (m + 1))"></form-field>
+					<form-field [field]="fm.getField('input_child_age_' + (m + 1))"></form-field>
 				</div>
 			</div>
 		</div>
@@ -32,7 +30,7 @@
 
    <div class="row">
 	   <div class="col-sm-4">
-				<form-field [field]="fm.getField('input_carer_single')"></form-field>
+			<form-field [field]="fm.getField('input_carer_single')"></form-field>
 		</div>
 	</div>
 

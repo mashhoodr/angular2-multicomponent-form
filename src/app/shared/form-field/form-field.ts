@@ -1,9 +1,7 @@
 import { Validator } from './validator';
 import { Tooltip } from './tooltip';
 
-
 export class FormField {
-
     name: string;
     label: string;
     defaultValue: string;
@@ -30,7 +28,6 @@ export class FormField {
 }
 
 export class TextFormField extends FormField {
-    
     type: string = 'text';
     placeholder: string;
     
@@ -38,23 +35,19 @@ export class TextFormField extends FormField {
         super(options);
         this.placeholder = options['placeholder'] || '';
     }
-    
 }
 
 export class SelectFormField extends FormField {
-    
     type: string = 'select';
     options: string[];
 
     constructor(options: {} = {}) {
         super(options);
         this.options = options['options'] || [];
-    }
-    
+    } 
 }
 
 export class NumberFormField extends FormField {
-    
     type: string = 'number';
     placeholder: string;
     
@@ -62,12 +55,10 @@ export class NumberFormField extends FormField {
         super(options);
         this.placeholder = options['placeholder'] || '';
     }
-    
 }
 
 export class RadioFormField extends FormField {
-    
-    public type: string = 'radio';
+    type: string = 'radio';
     options: string[];
 
     constructor(options: {} = {}) {
@@ -77,5 +68,11 @@ export class RadioFormField extends FormField {
 }
 
 export class CheckboxFormField extends FormField {    
-    public type: string = 'checkbox';
+    type: string = 'checkbox';
+    checked: boolean;
+
+    constructor(options: {} = {}) {
+        super(options);
+        this.checked = options['checked'] || false;
+    }
 }

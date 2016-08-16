@@ -33,6 +33,7 @@ const barrels: string[] = [
   'app/shared',
   'app/+step1',
   'app/+step2',
+  'app/sidebar',
   'app/shared/form-field',
   /** @cli-barrel */
 ];

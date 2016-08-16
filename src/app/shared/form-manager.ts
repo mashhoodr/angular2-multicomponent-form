@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators  } from '@angular/forms';
+import { 
+  FormBuilder, 
+  FormGroup, 
+  FormControl, 
+  Validators
+} from '@angular/forms';
+
 import { FormField, FormFieldService } from './form-field';
 
 @Injectable()
@@ -21,8 +27,8 @@ export class FormManager {
       
       sections[section.section] = fb.group(formGroup);
     }
-    this.mainForm = fb.group(sections);
 
+    this.mainForm = fb.group(sections);
     this.mainForm.valueChanges.subscribe((event) => console.log('Form Updated!', event));
   }
   
@@ -48,12 +54,13 @@ export class FormManager {
           search.push(control.controls[name]);
         }
       })
-    })
+    });
     
-    if(search.length <= 0) 
-      throw new Error(`Field with name: ${name} not found`)
+    if(search.length <= 0) {
+      throw new Error(`Field with name: ${name} not found`);
+    }
     
-     return search;
+    return search;
   }
 
 }

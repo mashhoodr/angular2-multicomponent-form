@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { FocusResetField } from './focus-reset-field.directive';
 import { TOOLTIP_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+
+import { FocusResetField } from './focus-reset-field.directive';
 
 @Component({
   moduleId: module.id,
@@ -11,5 +12,4 @@ import { TOOLTIP_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 })
 export class FormFieldComponent {
   @Input() field;
-   
 }

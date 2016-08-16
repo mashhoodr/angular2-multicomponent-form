@@ -1,17 +1,20 @@
-import {NgModule} from '@angular/core'
-import {RouterModule} from "@angular/router";
-import {rootRouterConfig} from "./app.routes";
-import {AppComponent} from "./app.component";
-import {ReactiveFormsModule} from "@angular/forms";
-import {BrowserModule} from "@angular/platform-browser";
-import {HttpModule} from "@angular/http";
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { Step1Component } from './+step1/step1.component';
-import { Step2Component } from './+step2/step2.component';
-import { FormFieldService } from './shared/form-field';
-import { FormManager } from './shared/form-manager';
-import { FormFieldComponent } from './shared/form-field';
+import { NgModule } from '@angular/core'
+import { RouterModule } from "@angular/router";
+import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpModule } from "@angular/http";
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
+import { rootRouterConfig } from "./app.routes";
+import { 
+  FormManager, 
+  FormFieldService, 
+  FormFieldComponent
+} from './shared';
+import { AppComponent } from "./app.component";
+import { SidebarComponent } from './sidebar';
+import { Step1Component } from './+step1';
+import { Step2Component } from './+step2';
 
 @NgModule({
   declarations: [
@@ -30,10 +33,8 @@ import { FormFieldComponent } from './shared/form-field';
   providers   : [
     FormFieldService, 
     FormManager, 
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap   : [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule {}

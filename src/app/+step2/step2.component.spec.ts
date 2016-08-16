@@ -1,3 +1,4 @@
+/*
 import {
   beforeEach,
   beforeEachProviders,
@@ -45,4 +46,4 @@ describe('Component: Step2', () => {
 })
 class Step2ComponentTestController {
 }
-
+*/

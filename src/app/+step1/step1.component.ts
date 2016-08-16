@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl  } from '@angular/forms';
+
 import { FormManager } from '../shared/form-manager';
 import { FormField } from '../shared/form-field';
 import { REGIONS } from './regions-data';
@@ -47,6 +48,7 @@ export class Step1Component {
   configureRegionField() {
     let regionField = this.regionField[0];
     let regionControl = this.regionField[1];
+    
     regionField.options = Object.keys(this.regions);
     this.setAreaField();
     regionControl.valueChanges.subscribe(() => {
@@ -59,6 +61,7 @@ export class Step1Component {
   configureRelationshipField() {
     let relationshipControl: FormControl = this.relationshipField[1];
     let partnerAgeField: FormField = this.partnerAgeField[0];      
+    
     relationshipControl.valueChanges.subscribe((newValue) => {
       this.partnerAgeField[0].hidden = (newValue == 'Single');
     });

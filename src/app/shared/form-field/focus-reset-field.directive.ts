@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef} from '@angular/core';
 
 @Directive({
   selector: '[focus-reset-field]',
@@ -11,8 +11,7 @@ export class FocusResetField {
 
   inputValue: string;
 
-  constructor(private el: ElementRef) {
-  }
+  constructor(private el: ElementRef) {}
 
   _onFocus() {
     this.inputValue = this.el.nativeElement.value;

@@ -4,14 +4,15 @@ import {
   RequiredValidator, 
   PatternValidator, 
   MinLengthValidator, 
-  MaxLengthValidator } from './validator';
+  MaxLengthValidator
+} from './validator';
 import { 
-  FormField, 
   TextFormField, 
   SelectFormField, 
   RadioFormField, 
   NumberFormField,
-  CheckboxFormField } from './form-field';
+  CheckboxFormField
+} from './form-field';
 
 @Injectable()
 export class FormFieldService {
@@ -126,7 +127,8 @@ export class FormFieldService {
         }),
         new CheckboxFormField({
           name: 'input_family_disability',
-          label: 'Any of the family members have disability?'
+          label: 'Any of the family members have disability?',
+          checked: true
         })
       ]
     }];
