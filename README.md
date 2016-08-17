@@ -4,7 +4,7 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 
 ## Functionality
 
-- [x] **RC5 ready!**
+- [x] **RC5 ready!** [Tests still need fixing :(]
 - [x] Large form broken over multiple components
 - [x] Single FormService managing all the data (using ngControl and ngForm)
 - [x] Inter-dependant select fields (values in one are dependant on other)
