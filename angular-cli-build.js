@@ -11,13 +11,13 @@ module.exports = function(defaults) {
     vendorNpmFiles: [
       'systemjs/dist/system-polyfills.js',
       'systemjs/dist/system.src.js',
-      'zone.js/dist/**/*.+(js|js.map)',
       'es6-shim/es6-shim.js',
+      'zone.js/dist/**/*.+(js|js.map)',
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
       'angular2-ie9-shims/*.js',
-	  'ng2-bootstrap/**/*.*',
+	    'ng2-bootstrap/**/*.*',
       'moment/**/*.js'
     ]
   });

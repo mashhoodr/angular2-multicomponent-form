@@ -1,3 +1,4 @@
+/*
 import {
   beforeEach,
   beforeEachProviders,
@@ -43,4 +44,4 @@ describe('Component: FormField', () => {
 })
 class FormFieldComponentTestController {
 }
-
+*/

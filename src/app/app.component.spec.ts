@@ -1,3 +1,4 @@
+/*
 import {
   beforeEachProviders,
   describe,
@@ -5,19 +6,21 @@ import {
   it,
   inject
 } from '@angular/core/testing';
-import { Angular2MulticomponentFormAppComponent } from '../app/angular2-multicomponent-form.component';
 import { Location } from '@angular/common';
 
-beforeEachProviders(() => [Angular2MulticomponentFormAppComponent, Location]);
+import { AppComponent } from './app.component';
+
+beforeEachProviders(() => [AppComponent, Location]);
 
 describe('App: Angular2MulticomponentForm', () => {
   it('should create the app',
-      inject([Angular2MulticomponentFormAppComponent], (app: Angular2MulticomponentFormAppComponent) => {
+      inject([AppComponent], (app: AppComponent) => {
     expect(app).toBeTruthy();
   }));
 
   it('should have as title \'Angular2 Multi Component Dynamic Form demo\'',
-      inject([Angular2MulticomponentFormAppComponent], (app: Angular2MulticomponentFormAppComponent) => {
+      inject([AppComponent], (app: AppComponent) => {
     expect(app.title).toEqual('Angular2 Multi Component Dynamic Form demo');
   }));
 });
+*/

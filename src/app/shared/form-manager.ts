@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, ControlGroup, Control, Validators  } from '@angular/common';
+import { 
+  FormBuilder, 
+  FormGroup, 
+  FormControl, 
+  Validators
+} from '@angular/forms';
+
 import { FormField, FormFieldService } from './form-field';
 
 @Injectable()
 export class FormManager {
   
-  public mainForm: ControlGroup;
+  public mainForm: FormGroup;
   public fields;
   
   constructor(fb: FormBuilder, formFieldService: FormFieldService) {
@@ -14,21 +20,19 @@ export class FormManager {
     
     for (let section of this.fields) {
       // dynamically generate the control groups
-      let controlGroup = {};
+      let formGroup = {};
       for (let field of section.fields) {
-        controlGroup[field.name] = [field.defaultValue].concat(this.getFieldValidators(field));
+        formGroup[field.name] = [field.defaultValue].concat(this.getFieldValidators(field));
       }
       
-      sections[section.section] = fb.group(controlGroup);
+      sections[section.section] = fb.group(formGroup);
     }
+
     this.mainForm = fb.group(sections);
+    this.mainForm.valueChanges.subscribe((event) => console.log('Form Updated!', event));
   }
   
-  valueUpdated(field: FormField, value: any) {
-    console.log('Form updated', field.name, value);
-  }
-
-  getFieldValidators(field) {
+  getFieldValidators(field): Validators[] {
     let result = [];
     
     for (let validation of field.validations) {
@@ -38,22 +42,25 @@ export class FormManager {
     return (result.length > 0) ? [Validators.compose(result)] : [];
   }
 
+  // TODO add types to these functions
   getField(name: string) {
+    // TODO create a class / interface to return instead of this array
     let search = [];
     this.fields.forEach(section => {
       section.fields.forEach(field => {
         if(field.name === name) {
           search.push(field);
-          let control: ControlGroup = <ControlGroup> this.mainForm.controls[section.section];
+          let control: FormGroup = <FormGroup> this.mainForm.controls[section.section];
           search.push(control.controls[name]);
         }
       })
-    })
+    });
     
-    if(search.length <= 0) 
-      throw new Error(`Field with name: ${name} not found`)
+    if(search.length <= 0) {
+      throw new Error(`Field with name: ${name} not found`);
+    }
     
-     return search;
+    return search;
   }
 
 }

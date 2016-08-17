@@ -1,3 +1,4 @@
+/*
 import {
   beforeEach,
   beforeEachProviders,
@@ -9,6 +10,7 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
 import { SidebarComponent } from './sidebar.component';
 
 describe('Component: Sidebar', () => {
@@ -47,4 +49,4 @@ describe('Component: Sidebar', () => {
   directives: [SidebarComponent]
 })
 class SidebarComponentTestController {}
-
+*/

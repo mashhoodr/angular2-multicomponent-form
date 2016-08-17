@@ -2,73 +2,77 @@ import { Validator } from './validator';
 import { Tooltip } from './tooltip';
 
 export class FormField {
-    constructor(
-       public name: string,      
-       public label: string, 
-       public defaultValue: string = '',
-       public validations: Validator[] = []) {}  
+    name: string;
+    label: string;
+    defaultValue: string;
+    validations: Validator[];
+    hidden: boolean;
+    tooltip: Tooltip;
+
+    constructor(options: {
+        name?: string,
+        label?: string,
+        hidden?: boolean,
+        defaultValue?: string,
+        validations?: Validator[],
+        tooltip?: Tooltip
+    }) {
+        if(!options.name) throw new Error('`Name` is required for FormField object');
+        this.name = options.name;
+        this.label = options.label || '';
+        this.defaultValue = options.defaultValue || '';
+        this.validations = options.validations || [];
+        this.tooltip = options.tooltip || null;
+        this.hidden = options.hidden || false;  
+    }
 }
 
 export class TextFormField extends FormField {
+    type: string = 'text';
+    placeholder: string;
     
-    public type: string = 'text';
-    
-    constructor(
-       public name: string,      
-       public label: string, 
-       public defaultValue: string = '',
-       public placeholder: string = '',
-       public validations: Validator[] = [],
-       public tooltip: Tooltip = null) {
-        super(name, label, defaultValue, validations);
+    constructor(options: {} = {}) {
+        super(options);
+        this.placeholder = options['placeholder'] || '';
     }
-    
 }
 
 export class SelectFormField extends FormField {
-    
-    public type: string = 'select';
-    
-    constructor(
-       public name: string,
-       public options: Array<string>,      
-       public label: string, 
-       public defaultValue: string = '',
-       public validations: Validator[] = [],
-       public tooltip: Tooltip = null) {
-        super(name, label, defaultValue, validations);
-    }
-    
+    type: string = 'select';
+    options: string[];
+
+    constructor(options: {} = {}) {
+        super(options);
+        this.options = options['options'] || [];
+    } 
 }
 
 export class NumberFormField extends FormField {
+    type: string = 'number';
+    placeholder: string;
     
-    public type: string = 'number';
-    
-    constructor(
-       public name: string,
-       public label: string,
-       public min: string = '', 
-       public defaultValue: string = '0',
-       public validations: Validator[] = [],
-       public tooltip: Tooltip = null) {
-      super(name, label, defaultValue, validations);
+    constructor(options: {} = {}) {
+        super(options);
+        this.placeholder = options['placeholder'] || '';
     }
-
 }
 
 export class RadioFormField extends FormField {
-    
-    public type: string = 'radio';
-    
-    constructor(
-       public name: string,
-       public label: string,
-       public options: Array<string>,
-       public defaultValue: string = '',
-       public validations: Validator[] = [],
-       public tooltip: Tooltip = null) {
-      super(name, label, defaultValue, validations);
-    }
+    type: string = 'radio';
+    options: string[];
 
+    constructor(options: {} = {}) {
+        super(options);
+        this.options = options['options'] || [];
+    }
+}
+
+export class CheckboxFormField extends FormField {    
+    type: string = 'checkbox';
+    checked: boolean;
+
+    constructor(options: {} = {}) {
+        super(options);
+        this.checked = options['checked'] || false;
+    }
 }

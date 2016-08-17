@@ -1,3 +1,4 @@
+/*
 import {
   async,
   beforeEachProviders,
@@ -8,9 +9,8 @@ import {
   it,
   inject
 } from '@angular/core/testing'
-
+import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { By } from '@angular/platform-browser';
-import {ComponentFixture, TestComponentBuilder} from '@angular/compiler/testing';
 import { provide, Component } from '@angular/core';
 import { FocusResetField } from './focus-reset-field.directive';
 
@@ -92,3 +92,4 @@ describe('Focus Reset Field Directive: ', () => {
       });
   }));
 });
+*/
