@@ -1,49 +1,25 @@
-/*
-import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject,
-} from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
-import { By } from '@angular/platform-browser';
+/* tslint:disable:no-unused-variable */
+
+import { addProviders, async, inject } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+
 import { Step2Component } from './step2.component';
-import { FormManager } from '../shared/form-manager';
-import { FormFieldService } from '../shared/form-field/';
+import { FormManager, FormFieldService } from '../shared';
 
-describe('Component: Step2', () => {
-  let builder: TestComponentBuilder;
+describe('Component: Step2: ', () => {
 
-  beforeEachProviders(() => [Step2Component, FormManager, FormFieldService]);
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
+  beforeEach(() => {
+    addProviders([
+      Step2Component, 
+      FormBuilder, 
+      FormManager, 
+      FormFieldService 
+    ]);
+  });
 
   it('should inject the component', inject([Step2Component],
       (component: Step2Component) => {
     expect(component).toBeTruthy();
   }));
-
-  it('should create the component', inject([], () => {
-    return builder.createAsync(Step2ComponentTestController)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(Step2Component));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
+  
 });
-
-@Component({
-  selector: 'test',
-  template: `
-    <app-step2></app-step2>
-  `,
-  directives: [Step2Component]
-})
-class Step2ComponentTestController {
-}
-*/
