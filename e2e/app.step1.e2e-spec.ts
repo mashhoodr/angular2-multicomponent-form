@@ -1,18 +1,20 @@
-import { AppStepFormPage } from './app.step.po';
+import { AppStepPage } from './app.step.po';
 
 describe('angular2-multicomponent-form App Step1 Tests: ', function() {
-  let page: AppStepFormPage;
+  let page: AppStepPage;
   
   beforeEach(() => {
-    page = new AppStepFormPage('step1');
+    page = new AppStepPage('step1');
     page.navigateTo();
     // page.resetFields(['input_name', 'input_age_user']);
   });
 
+  /*
   it('should display message saying `This is step1.`', (done) => {
     expect(page.getParagraphText()).toEqual('This is step1.');
     done();
   });
+  */
 
   it('should change input Area by changing input Region', (done) => {
     // default values set
@@ -45,17 +47,17 @@ describe('angular2-multicomponent-form App Step1 Tests: ', function() {
 
   // step1 form validation tests!
 
-  it('should display error message `Required..` on input field `input_name` when empty', (done) => {
+  it('should display error message `Required.` on input field `input_name` when empty', (done) => {
     page.clearInputField('input_name');
-    expect(page.getErrorTextForField('input_name')).toEqual('Required..');
+    expect(page.getErrorTextForField('input_name')).toEqual('Required.');
     expect(page.checkIfFieldHasError('input_name')).toBeTruthy();
     done();
   });
 
-  it('should perform validation on field as input value changes', (done) => {
+  it('should perform validation on field \'input_name\'as input value changes', (done) => {
     page.setInputFieldValue('input_name', 'test');
     expect(page.checkIfFieldHasError('input_name')).toBeTruthy();
-    expect(page.getErrorTextForField('input_name')).toEqual('Minimum length should be 5');
+    expect(page.getErrorTextForField('input_name')).toEqual('Name should be atleast 5 characters.');
     done();
   });
  
