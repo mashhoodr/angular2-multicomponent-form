@@ -1,0 +1,17 @@
+<div class="container">
+  <h3>{{title}}</h3>
+  
+  <ul class="nav nav-pills">
+    <li role="presentation" [class.active]="getLinkStyle('/step1')"><a id="step1-button" [routerLink]="['/step1']">Step 1</a></li>
+    <li role="presentation" [class.active]="getLinkStyle('/step2')"><a id="step2-button" [routerLink]="['/step2']">Step 2</a></li>
+  </ul>
+
+  <div class="row">
+  	<div class="col-md-9">
+  		<router-outlet></router-outlet>
+  	</div>
+  	<div class="col-md-3">
+  		<app-sidebar></app-sidebar>
+  	</div>
+  </div>
+</div>

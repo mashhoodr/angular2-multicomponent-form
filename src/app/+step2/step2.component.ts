@@ -1,23 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { ControlGroup, AbstractControl } from '@angular/common';
+import { AbstractControl } from '@angular/forms';
+
 import { FormManager } from '../shared/form-manager';
-import { FormFieldComponent } from '../shared/form-field';
 
 @Component({
   moduleId: module.id,
   selector: 'app-step2',
   templateUrl: 'step2.component.html',
-  styleUrls: ['step2.component.css'],
-  directives: [FormFieldComponent]
+  styleUrls: ['step2.component.css']
 })
-export class Step2Component implements OnInit {
-  step2: AbstractControl;
+export class Step2Component {
   
-  constructor(public fm: FormManager) {
+  step2: AbstractControl;
+  input_number_of_children;
+  
+  constructor(private fm: FormManager) {
     this.step2 = fm.mainForm.controls['step2'];
+    this.input_number_of_children = fm.getField('input_number_of_children');
   }
-
-  ngOnInit() {
+  
+  private assertChildCount(value) {
+    return value < parseInt(this.input_number_of_children[1].value, 10);
+  }
+  
+  private hasChildren() {
+    return parseInt(this.input_number_of_children[1].value, 10) > 0;
   }
 
 }

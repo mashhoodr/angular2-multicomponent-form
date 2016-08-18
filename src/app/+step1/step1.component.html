@@ -1,9 +1,12 @@
-<p>This is step1.</p>
+<p>Please fill out the information below and then move to the next step using the navigation above.</p>
 
-  <form [ngFormModel]="step1">
-    <form-field [field]="fm.getField('input_name')"></form-field>
-    
-    <form-field [field]="fm.getField('input_age_user')"></form-field>
-    
-    <form-field [field]="fm.getField('input_relationship_status')"></form-field>
-  </form>
+<form [formGroup]="step1">
+  
+  <!-- rendering the fields dynamically -->
+  <div class="row" *ngFor="let fieldName of getFieldsList()">
+    <div class="col-sm-4">
+      <form-field [field]="fm.getField(fieldName)"></form-field>
+    </div>
+  </div>
+
+</form>

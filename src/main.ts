@@ -1,9 +1,4 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
-import { Angular2MulticomponentFormAppComponent, environment, FormFieldService } from './app/';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app';
 
-if (environment.production) {
-  enableProdMode();
-}
-
-bootstrap(Angular2MulticomponentFormAppComponent, [FormFieldService]);
+platformBrowserDynamic().bootstrapModule(AppModule);
