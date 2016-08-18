@@ -4,7 +4,7 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 
 ## Functionality
 
-- [x] **RC5 ready!** [Tests still need fixing :(]
+- [x] **RC5 ready!** 
 - [x] Dynamic rendering and customising for form fields
 - [x] Support for Text, Select, Radio and Checkboxes
 - [x] Large form broken over multiple components
