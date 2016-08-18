@@ -17,8 +17,6 @@ import {
 @Injectable()
 export class FormFieldService {
   
-  constructor() {}
-  
   getFormFields() {
     return [{
       section: 'step1',

@@ -1,14 +1,28 @@
-export class AppStepFormPage {
-  step: string;
-  waitTime: number = 3000;
+import { AppPage } from './app.po';
 
+export class AppStepPage extends AppPage {
+  step: string;
+  
   constructor(step: string) {
+    super();
     this.step = step;
   }
 
+  /**
+   * OVERRIDE FUNCTIONS
+   */
+
   navigateTo() {
-    return browser.get('/' + this.step);
+    super.navigateTo('/#/' + this.step);
   }
+
+  getParagraphText() {
+    return element(by.css('app-' + this.step + ' p')).getText();
+  }
+
+  /**
+   * NEW FUNCTIONS
+   */
 
   waitForField(field: string, text: string) {
     browser.wait(() => {
@@ -34,16 +48,12 @@ export class AppStepFormPage {
     return this.hasClass('p#sidebar-'+ this.step + '-status', 'text-success');
   }  
 
-  // form
+  // Form
   
   resetFields(fields: Array<string>) {
     fields.forEach((fieldname) => {
       this.getInputField(fieldname).clear();
     });
-  }
-  
-  getParagraphText() {
-    return element(by.css('app-' + this.step + ' p')).getText();
   }
 
   getErrorForField(fieldId: string) {
@@ -83,7 +93,7 @@ export class AppStepFormPage {
 
   }
 
-  /* Tooltip */
+  // Tooltip
   
   clickOnField(fieldId: string) {
     this.getInputField(fieldId).click();
