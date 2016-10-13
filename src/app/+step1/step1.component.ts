@@ -6,7 +6,6 @@ import { FormField } from '../shared/form-field';
 import { REGIONS } from './regions-data';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-step1',
   templateUrl: 'step1.component.html',
   styleUrls: ['step1.component.css']

@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { ComponentMigrationPage } from './app.po';
 
-describe('angular2-multicomponent-form App Tests: ', function() {
-  let page: AppPage;
+describe('component-migration App', function() {
+  let page: ComponentMigrationPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new ComponentMigrationPage();
   });
 
-  it('should display message saying \'Angular2 Multi Component Dynamic Form demo\'', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Angular2 Multi Component Dynamic Form demo');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });
