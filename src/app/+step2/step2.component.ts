@@ -4,7 +4,6 @@ import { AbstractControl } from '@angular/forms';
 import { FormManager } from '../shared/form-manager';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-step2',
   templateUrl: 'step2.component.html',
   styleUrls: ['step2.component.css']
