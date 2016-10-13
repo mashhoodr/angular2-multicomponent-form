@@ -17,11 +17,17 @@ A small playground using Angular2 which demonstrates a way to structure an appli
 - [x] IE9 Support (with some hacks) [pending testing post 2.1 final update]
 - [x] Clicking on text fields should empty them, if empty on blur restore the value
 - [x] Tooltips on input fields
-- [x] Upgrade to new forms module (RC5)
-- [x] Upgrade to AngularCLI Webpack
 - [ ] Injecting custom html blocks (non-form related) into components (ads, widgets etc)
 - [ ] Highcharts integration
 - [ ] Testing large forms (adding as we go along)
+
+## Additional Todos
+
+- [x] Upgrade to new forms module (RC5)
+- [x] Upgrade to AngularCLI Webpack
+- [ ] Fix tests post upgrade to Angular2 final
+- [ ] Fix E2E tests post upgrade to Angular2 final
+- [ ] Fix all linting errors
 
 ## How can I support developers?
 
