@@ -12,19 +12,19 @@ import {
   FormFieldComponent
 } from './shared';
 import { AppComponent } from "./app.component";
-import { Step1Module } from './+step1/step1.module';
-import { Step1Module } from './+step2/step2.module';
-import { SidebarModule } from './sidebar/sidebar.module'
+import { SidebarComponent } from './sidebar';
+import { Step1Component } from './+step1';
+import { Step2Component } from './+step2';
 
 @NgModule({
   declarations: [
     AppComponent, 
+    SidebarComponent, 
     FormFieldComponent, 
+    Step1Component, 
+    Step2Component
   ],
   imports     : [
-    SidebarModule,
-    Step1Module,
-    Step1Module,
     BrowserModule, 
     ReactiveFormsModule, 
     HttpModule, 
