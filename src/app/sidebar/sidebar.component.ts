@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormManager } from '../shared/form-manager';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-sidebar',
   templateUrl: 'sidebar.component.html',
   styleUrls: ['sidebar.component.css']

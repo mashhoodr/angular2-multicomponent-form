@@ -1,10 +1,10 @@
 # angular2-multi-component-dynamic-form
 
-A small playground using Angular2 RC1 which demonstrates a way to structure an application with a large dynamic form. There is routing so a form can be in multiple steps but the central form object in form of a service is persisted through the app. There are validations (default and custom) + additional customizations that might be needed and several other features.
+A small playground using Angular2 which demonstrates a way to structure an application with a large dynamic form. There is routing so a form can be in multiple steps but the central form object in form of a service is persisted through the app. There are validations (default and custom) + additional customizations that might be needed and several other features.
 
 ## Functionality
 
-- [x] **RC5 ready!** 
+- [x] **Angular 2.1 ready!** 
 - [x] Dynamic rendering and customising for form fields
 - [x] Support for Text, Select, Radio and Checkboxes
 - [x] Large form broken over multiple components
@@ -14,10 +14,11 @@ A small playground using Angular2 RC1 which demonstrates a way to structure an a
 - [x] Sidebar showing status of form in each component
 - [x] Field visibility dependant on service
 - [x] Control visibility using specific fields (via custom code in Compontent)
-- [x] IE9 Support (with some hacks) [pending testing post RC5 update]
+- [x] IE9 Support (with some hacks) [pending testing post 2.1 final update]
 - [x] Clicking on text fields should empty them, if empty on blur restore the value
 - [x] Tooltips on input fields
 - [x] Upgrade to new forms module (RC5)
+- [x] Upgrade to AngularCLI Webpack
 - [ ] Injecting custom html blocks (non-form related) into components (ads, widgets etc)
 - [ ] Highcharts integration
 - [ ] Testing large forms (adding as we go along)
